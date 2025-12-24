@@ -19,9 +19,20 @@ import SettingsWindow from './components/SettingsWindow';
 
 
 const socket = io('http://localhost:8000');
-const { ipcRenderer } = window.require('electron');
+
+// Safe Electron Import (Mock for Browser)
+let ipcRenderer = { send: () => { } };
+try {
+    if (window.require) {
+        const electron = window.require('electron');
+        ipcRenderer = electron.ipcRenderer;
+    }
+} catch (e) {
+    console.log("Electron not detected. Running in browser mode.");
+}
 
 function App() {
+    console.log("App component rendering");
     const [status, setStatus] = useState('Disconnected');
     const [socketConnected, setSocketConnected] = useState(socket.connected); // Track socket connection reactively
     // Auth State
@@ -329,9 +340,9 @@ function App() {
         socket.on('status', (data) => {
             addMessage('System', data.msg);
             // Update status bar based on backend messages
-            if (data.msg === 'A.D.A Started') {
+            if (data.msg === 'Multivac System Online') {
                 setStatus('Model Connected');
-            } else if (data.msg === 'A.D.A Stopped') {
+            } else if (data.msg === 'Multivac System Stopped') {
                 setStatus('Connected');
             }
         });

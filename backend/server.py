@@ -9,6 +9,9 @@ if sys.platform == 'win32':
 import socketio
 import uvicorn
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
 import asyncio
 import threading
 import sys
@@ -17,7 +20,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-
+# ... (imports)
 
 # Ensure we can import ada
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -29,6 +32,24 @@ from kasa_agent import KasaAgent
 # Create a Socket.IO server
 sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins='*')
 app = FastAPI()
+
+@app.get("/status")
+@app.get("/api/status")
+async def health_check():
+    return {"status": "ok", "timestamp": datetime.now().isoformat()}
+
+# --- STATIC FILE SERVING ---
+# Resolve project root (one level up from backend/)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIST_DIR = os.path.join(PROJECT_ROOT, "dist")
+
+if os.path.exists(DIST_DIR):
+    print(f"[SERVER] Mounting static files from {DIST_DIR}")
+    app.mount("/", StaticFiles(directory=DIST_DIR, html=True), name="static")
+else:
+    print(f"[SERVER] WARNING: dist/ directory not found. Frontend will not be served.")
+    print(f"[SERVER] Please run 'npm run build' in {PROJECT_ROOT}")
+
 app_socketio = socketio.ASGIApp(sio, app)
 
 import signal
