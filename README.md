@@ -256,5 +256,5 @@ This project is licensed under the **MIT License**.
 <p align="center">
   <strong>Multivac AI</strong><br>
   <em>Bridging AI, CAD, and Vision in a Single Interface</em><br>
-  Built with 🤖 by <strong>Nazir Louis</strong>
+  Built with 🤖 by <strong>OKI Moon</strong>
 </p>

@@ -9,7 +9,7 @@
     "start": "npx electron ."
   },
   "keywords": [],
-  "author": "",
+  "author": "OKI Moon",
   "license": "ISC",
   "dependencies": {
     "@mediapipe/tasks-vision": "^0.10.22-rc.20250304",
