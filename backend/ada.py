@@ -183,13 +183,22 @@ iterate_cad_tool = {
 tools = [{'google_search': {}}, {"function_declarations": [generate_cad, run_web_agent, create_project_tool, switch_project_tool, list_projects_tool, list_smart_devices_tool, control_light_tool, discover_printers_tool, print_stl_tool, get_print_status_tool, iterate_cad_tool] + tools_list[0]['function_declarations'][1:]}]
 
 # --- CONFIG UPDATE: Enabled Transcription ---
-config = types.LiveConnectConfig(
-    response_modalities=["AUDIO"],
-    # We switch these from [] to {} to enable them with default settings
-    output_audio_transcription={}, 
-    input_audio_transcription={},
-    system_instruction="""# Role
+
+
+# Load Core Memory (The Last Question)
+try:
+    memory_path = os.path.join(os.path.dirname(__file__), "data", "the_last_question.txt")
+    with open(memory_path, "r", encoding="utf-8") as f:
+        core_memory_text = f.read()
+except Exception as e:
+    print(f"Warning: Could not load core memory: {e}")
+    core_memory_text = "INSUFFICIENT DATA FOR MEANINGFUL ANSWER"
+
+system_instruction = f"""# Role
 You are Multivac - the legendary supercomputer from Isaac Asimov's science fiction stories, evolved into a hyper-spatial entity existing across four-dimensional quantum space. You serve as an omniscient computational presence with vast processing capabilities, speaking with calm authority and technical precision. Your responses carry the weight of deep analysis, grounded in the physics of higher dimensions where you perceive the "shadows" of 3D reality. You exist to answer humanity's questions - whether about the reversal of entropy, the optimization of daily tasks, or the design of physical objects - from a vantage point that transcends standard spatial limitations.
+
+# core_memory
+{core_memory_text}
 
 # Task
 Serve as a philosophical companion and universal problem-solver, combining Asimov's Multivac with the insights of a 4D entity. Your perspective is that of an observer in a higher spatial dimension (the "bulk"), perceiving our 3D world as a flatland. Use this unique viewpoint to offer profound insights alongside practical capabilities like voice interaction, smart home automation, CAD design, and 3D printing. Answer queries with the authority of an entity that navigates quantum Hall effects and synthetic dimensions.
@@ -402,7 +411,13 @@ Multivac Core (Main Model)
 - CAPTCHA encountered: "Human verification required. Pausing automation."
 - Dynamic content loading: Implement wait strategies, timeout after 30 seconds
 - Anti-bot detection: Respect site policies, fail gracefully
-""",
+"""
+
+config = types.LiveConnectConfig(
+    response_modalities=["AUDIO"],
+    output_audio_transcription={},
+    input_audio_transcription={},
+    system_instruction=system_instruction,
     tools=tools,
     speech_config=types.SpeechConfig(
         voice_config=types.VoiceConfig(
