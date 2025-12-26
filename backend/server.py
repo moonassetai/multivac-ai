@@ -27,7 +27,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import ada
 from authenticator import FaceAuthenticator
-from kasa_agent import KasaAgent
+# from kasa_agent import KasaAgent  # Temporarily disabled due to conda environment conflict
 
 # Create a Socket.IO server
 sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins='*')
@@ -75,7 +75,8 @@ signal.signal(signal.SIGTERM, signal_handler)
 audio_loop = None
 loop_task = None
 authenticator = None
-kasa_agent = KasaAgent()
+# kasa_agent = KasaAgent()  # Temporarily disabled
+kasa_agent = None  # Placeholder
 SETTINGS_FILE = "settings.json"
 
 DEFAULT_SETTINGS = {
@@ -132,7 +133,8 @@ def save_settings():
 load_settings()
 
 authenticator = None
-kasa_agent = KasaAgent(known_devices=SETTINGS.get("kasa_devices"))
+# kasa_agent = KasaAgent(known_devices=SETTINGS.get("kasa_devices"))  # Temporarily disabled
+kasa_agent = None  # Placeholder
 # tool_permissions is now SETTINGS["tool_permissions"]
 
 @app.on_event("startup")
@@ -149,7 +151,7 @@ async def startup_event():
         print(f"[SERVER DEBUG] Error checking loop: {e}")
 
     print("[SERVER] Startup: Initializing Kasa Agent...")
-    await kasa_agent.initialize()
+    # await kasa_agent.initialize()  # Temporarily disabled
 
 @app.get("/status")
 async def status():

@@ -1424,11 +1424,25 @@ function App() {
             <div className="z-50 flex items-center justify-between p-2 border-b border-cyan-500/20 bg-black/40 backdrop-blur-md select-none sticky top-0" style={{ WebkitAppRegion: 'drag' }}>
                 <div className="flex items-center gap-4 pl-2">
                     <h1 className="text-xl font-bold tracking-[0.2em] text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-                        A.D.A
+                        MULTIVAC AI
                     </h1>
                     <div className="text-[10px] text-cyan-700 border border-cyan-900 px-1 rounded">
                         V2.0.0
                     </div>
+
+                    {/* Connection Status Indicator */}
+                    {!socketConnected && (
+                        <div className="flex items-center gap-1.5 text-[10px] text-orange-400 border border-orange-500/30 bg-orange-500/10 px-2 py-0.5 rounded ml-2 animate-pulse">
+                            <span>⚠️</span>
+                            <span>Backend Disconnected</span>
+                        </div>
+                    )}
+                    {socketConnected && (
+                        <div className="flex items-center gap-1.5 text-[10px] text-green-400 border border-green-500/30 bg-green-500/10 px-2 py-0.5 rounded ml-2">
+                            <span>●</span>
+                            <span>Connected</span>
+                        </div>
+                    )}
                     {/* FPS Counter */}
                     {isVideoOn && (
                         <div className="text-[10px] text-green-500 border border-green-900 px-1 rounded ml-2">

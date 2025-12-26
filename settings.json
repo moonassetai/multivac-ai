@@ -1,0 +1,22 @@
+{
+    "face_auth_enabled": true,
+    "tool_permissions": {
+        "generate_cad": false,
+        "run_web_agent": true,
+        "write_file": true,
+        "read_directory": true,
+        "read_file": true,
+        "create_project": true,
+        "switch_project": true,
+        "list_projects": true
+    },
+    "printers": [],
+    "kasa_devices": [],
+    "camera_flipped": false,
+    "assistant_config": {
+        "name": "Multivac",
+        "voice": "Kore",
+        "personality": "default",
+        "custom_personality_prompt": ""
+    }
+}

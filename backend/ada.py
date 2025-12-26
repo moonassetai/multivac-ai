@@ -432,7 +432,8 @@ pya = pyaudio.PyAudio()
 
 from cad_agent import CadAgent
 from web_agent import WebAgent
-from kasa_agent import KasaAgent
+from project_manager import ProjectManager
+# from kasa_agent import KasaAgent  # Temporarily disabled
 from printer_agent import PrinterAgent
 
 class AudioLoop:
@@ -480,7 +481,8 @@ class AudioLoop:
         
         self.cad_agent = CadAgent(on_thought=handle_cad_thought, on_status=handle_cad_status)
         self.web_agent = WebAgent()
-        self.kasa_agent = kasa_agent if kasa_agent else KasaAgent()
+        # self.kasa_agent = KasaAgent()  # Temporarily disabled
+        self.kasa_agent = None  # Placeholder
         self.printer_agent = PrinterAgent()
 
         self.send_text_task = None

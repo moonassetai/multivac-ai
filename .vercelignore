@@ -1,0 +1,54 @@
+# Dependencies
+node_modules
+.venv
+venv
+venv_core
+venv.bak
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# Backend
+backend/__pycache__
+backend/*.pyc
+backend/data
+backend/*.task
+backend/reference.jpg
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+tests
+pytest.ini
+
+# Logs
+*.log
+
+# Temporary files
+temp_cad_gen.py
+output.stl
+*.stl
+trace.txt
+
+# Git
+.git
+.gitignore
