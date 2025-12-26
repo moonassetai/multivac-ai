@@ -25,6 +25,7 @@ It is not just an assistant; it is a universal problem solver, capable of managi
 | **👁️ Visual Analysis** | Real-time scene understanding and object recognition | MediaPipe / Gemini Vision |
 | **🌐 Web Agent** | Autonomous browser automation | Playwright + Chromium |
 | **🏠 Smart Home** | Voice control for Kasa devices | `python-kasa` |
+| **🧠 Core Memory** | Asimov's "The Last Question" integrated as foundational context | System Instruction Injection |
 | **📁 Universal Memory** | Persistent context across sessions | File-based JSON storage |
 
 ### 🖐️ Gesture Control Details
