@@ -92,7 +92,13 @@ DEFAULT_SETTINGS = {
     },
     "printers": [], # List of {host, port, name, type}
     "kasa_devices": [], # List of {ip, alias, model}
-    "camera_flipped": False # Invert cursor horizontal direction
+    "camera_flipped": False, # Invert cursor horizontal direction
+    "assistant_config": {
+        "name": "Multivac",
+        "voice": "Kore",
+        "personality": "default",
+        "custom_personality_prompt": ""
+    }
 }
 
 SETTINGS = DEFAULT_SETTINGS.copy()
@@ -998,6 +1004,46 @@ async def update_tool_permissions(sid, data):
         audio_loop.update_permissions(SETTINGS["tool_permissions"])
     # Broadcast update to all
     await sio.emit('tool_permissions', SETTINGS["tool_permissions"])
+
+@sio.event
+async def get_assistant_config(sid):
+    """Send current assistant configuration to client"""
+    config = SETTINGS.get("assistant_config", {
+        "name": "Multivac",
+        "voice": "Kore",
+        "personality": "default",
+        "custom_personality_prompt": ""
+    })
+    await sio.emit('assistant_config', config)
+
+@sio.event
+async def update_assistant_config(sid, data):
+    """Update assistant configuration and reload AI if active"""
+    print(f"[SERVER] Updating assistant config: {data}")
+    
+    # Update settings
+    SETTINGS["assistant_config"] = data
+    save_settings()
+    
+    # Broadcast to all clients
+    await sio.emit('assistant_config', data)
+    
+    # TODO: Implement hot-reload of audio loop with new config
+    # For now, user will need to restart the connection
+    await sio.emit('status', {'msg': f'Assistant configuration updated to {data.get("name", "Multivac")}. Restart connection to apply changes.'})
+
+@sio.event
+async def preview_voice(sid, data):
+    """Generate a voice preview sample"""
+    voice = data.get('voice', 'Kore')
+    text = data.get('text', 'Hello, this is a voice preview.')
+    
+    print(f"[SERVER] Voice preview requested: {voice}")
+    
+    # TODO: Implement actual voice preview generation
+    # This would require creating a temporary Gemini session with the selected voice
+    # For now, just acknowledge the request
+    await sio.emit('status', {'msg': f'Voice preview: {voice}'})
 
 if __name__ == "__main__":
     uvicorn.run(

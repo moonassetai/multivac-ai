@@ -8,6 +8,14 @@ npm run build
 ```
 *This prepares the web interface.*
 
+## Prerequisites (CRITICAL)
+
+- **Python 3.10 OR 3.11** (Required!)
+  - ❌ **DO NOT use Python 3.14 or 3.13** (They are too new and will fail).
+  - ✅ Download Python 3.11 here: [Python 3.11.9 Download](https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe)
+  - **IMPORTANT:** Check the box **"Add Python to PATH"** in the installer.
+  - After installing, run `py --list` to confirm you have 3.11 available.
+
 ## Quick Start
 
 1.  **Open Terminal**

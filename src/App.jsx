@@ -15,6 +15,7 @@ import AuthLock from './components/AuthLock';
 import KasaWindow from './components/KasaWindow';
 import PrinterWindow from './components/PrinterWindow';
 import SettingsWindow from './components/SettingsWindow';
+import AssistantCustomizer from './components/AssistantCustomizer';
 
 
 
@@ -94,7 +95,13 @@ function App() {
     const [selectedSpeakerId, setSelectedSpeakerId] = useState(() => localStorage.getItem('selectedSpeakerId') || '');
     const [selectedWebcamId, setSelectedWebcamId] = useState(() => localStorage.getItem('selectedWebcamId') || '');
     const [showSettings, setShowSettings] = useState(false);
+    const [showAssistantCustomizer, setShowAssistantCustomizer] = useState(false);
     const [currentProject, setCurrentProject] = useState('default');
+    const [assistantConfig, setAssistantConfig] = useState({
+        name: 'Multivac',
+        voice: 'Kore',
+        personality: 'default'
+    });
 
     // Modular Mode State
     const [isModularMode, setIsModularMode] = useState(false);
@@ -516,6 +523,15 @@ function App() {
             console.log("Project Update:", data.project);
             setCurrentProject(data.project);
             addMessage('System', `Switched to project: ${data.project}`);
+        });
+
+        socket.on('assistant_config', (config) => {
+            console.log('[Assistant Config] Received:', config);
+            setAssistantConfig({
+                name: config.name || 'Multivac',
+                voice: config.voice || 'Kore',
+                personality: config.personality || 'default'
+            });
         });
 
         // Track printer count for toolbar display
@@ -1655,6 +1671,8 @@ function App() {
                         showCadWindow={showCadWindow}
                         onToggleBrowser={() => setShowBrowserWindow(!showBrowserWindow)}
                         showBrowserWindow={showBrowserWindow}
+                        onToggleAssistant={() => setShowAssistantCustomizer(!showAssistantCustomizer)}
+                        showAssistantCustomizer={showAssistantCustomizer}
                         activeDragElement={activeDragElement}
                         position={elementPositions.tools}
                         onMouseDown={(e) => handleMouseDown(e, 'tools')}
@@ -1689,6 +1707,14 @@ function App() {
                 )}
 
                 {/* Memory Prompt removed - memory is now actively saved to project */}
+
+                {/* Assistant Customizer Modal */}
+                {showAssistantCustomizer && (
+                    <AssistantCustomizer
+                        socket={socket}
+                        onClose={() => setShowAssistantCustomizer(false)}
+                    />
+                )}
 
                 {/* Tool Confirmation Modal */}
                 <ConfirmationPopup
