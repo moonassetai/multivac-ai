@@ -6,7 +6,7 @@
 ![Gemini](https://img.shields.io/badge/Google%20Gemini-Native%20Audio-4285F4?logo=google)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-> "The last question was asked for the first time, half in jest, on May 21, 2061..."
+> "The last question was asked for the first time, half in jest, on May 31, 2026..."
 
 **Multivac AI** is a sophisticated AI entity designed for multimodal interaction, evolving from the legendary supercomputer of Asimov's creation. It combines Google's **Gemini 2.5 Native Audio** with computer vision, gesture control, and 3D CAD generation in a unified Electron desktop application.
 

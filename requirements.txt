@@ -10,13 +10,19 @@ python-multipart
 # Google GenAI SDK
 google-genai
 
-# Computer Vision & Audio  
-numpy>=1.24.0
-opencv-python
-pyaudio
+# Computer Vision & Audio
+# Use specific versions with pre-built wheels for Windows
+numpy>=1.24.0,<2.0.0
+opencv-python-headless>=4.8.0
+pyaudio; platform_system != "Linux"
+
+# Computer Control (NEW)
+pyautogui>=0.9.54
+pygetwindow>=0.0.9; platform_system == "Windows"
+psutil>=5.9.0
 
 # Smart Home
-kasa
+python-kasa
 
 # Utilities
 python-dotenv
