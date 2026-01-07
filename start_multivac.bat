@@ -24,15 +24,20 @@ IF %ERRORLEVEL% EQU 0 (
     call conda run -n multivac-core pip install -r requirements.txt --prefer-binary >nul 2>&1
     
     echo.
+    echo.
     echo ===================================================
-    echo [INFO] Starting Multivac Core...
-    echo [INFO] If successful, you will see "Multivac System Online"
+    echo [INFO] Starting Multivac System...
     echo ===================================================
     echo.
-    call conda run -n multivac-core --no-capture-output python backend/server.py
+    
+    echo [1/2] Launching Neural Backend Port 8000...
+    start "Multivac Backend" conda run -n multivac-core --no-capture-output python backend/server.py
+    
+    echo [2/2] Launching Interface Electron + Vite...
+    call npm run dev
     
     echo.
-    echo [INFO] Server process ended.
+    echo [INFO] Session ended.
     pause
     exit /b
 )

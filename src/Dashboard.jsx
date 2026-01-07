@@ -11,7 +11,10 @@ import { Mic, MicOff, Settings, X, Minus, Power, Video, VideoOff, Layout, Hand, 
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 // MemoryPrompt removed - memory is now actively saved to project
 import ConfirmationPopup from './components/ConfirmationPopup';
-import AuthLock from './components/AuthLock';
+// AuthLock removed in favor of Firebase Login
+import Login from './components/Login';
+import { auth } from './firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth'; // Import listener
 import KasaWindow from './components/KasaWindow';
 import PrinterWindow from './components/PrinterWindow';
 import SettingsWindow from './components/SettingsWindow';
@@ -22,9 +25,10 @@ import AssistantCustomizer from './components/AssistantCustomizer';
 const socket = io('http://localhost:8000');
 
 // Safe Electron Import (Mock for Browser)
+// Safe Electron Import (Mock for Browser)
 let ipcRenderer = { send: () => { } };
 try {
-    if (window.require) {
+    if (typeof window !== 'undefined' && typeof window.require === 'function') {
         const electron = window.require('electron');
         ipcRenderer = electron.ipcRenderer;
     }
@@ -37,18 +41,30 @@ function Dashboard() {
     const [status, setStatus] = useState('Disconnected');
     const [socketConnected, setSocketConnected] = useState(socket.connected); // Track socket connection reactively
     // Auth State
-    const [isAuthenticated, setIsAuthenticated] = useState(() => {
-        // Optimistically assume authenticated if face auth is NOT enabled
-        return localStorage.getItem('face_auth_enabled') !== 'true';
-    });
+    // Auth State
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // Default to false, wait for Firebase
+    const [user, setUser] = useState(null); // Track user object
+
+    useEffect(() => {
+        // Firebase Auth Listener
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                console.log("User logged in:", currentUser.email);
+                setUser(currentUser);
+                setIsAuthenticated(true);
+                setIsLockScreenVisible(false); // Hide login screen
+            } else {
+                console.log("User logged out");
+                setUser(null);
+                setIsAuthenticated(false);
+                setIsLockScreenVisible(true); // Show login screen
+            }
+        });
+        return () => unsubscribe();
+    }, []);
 
     // Initialize from LocalStorage to prevent flash of UI
-    const [isLockScreenVisible, setIsLockScreenVisible] = useState(() => {
-        const saved = localStorage.getItem('face_auth_enabled');
-        // If saved is 'true', we MUST start locked.
-        // If 'false' or null (default off), we start unlocked.
-        return saved === 'true';
-    });
+    const [isLockScreenVisible, setIsLockScreenVisible] = useState(false); // Force Disabled for User Convenience
 
     // Local state for tracking settings, also init from local storage
     const [faceAuthEnabled, setFaceAuthEnabled] = useState(() => {
@@ -1383,13 +1399,17 @@ function Dashboard() {
                 We set isLockScreenVisible = true via socket if auth is required.
              */}
 
-            {isLockScreenVisible && (
-                <AuthLock
-                    socket={socket}
-                    onAuthenticated={() => setIsAuthenticated(true)}
-                    onAnimationComplete={() => setIsLockScreenVisible(false)}
-                />
+            {/* Authentication Layer - Overrides everything if not authenticated */}
+            {!isAuthenticated && (
+                <div className="absolute inset-0 z-[100]">
+                    <Login />
+                </div>
             )}
+
+            {/* Legacy Lock Screen Logic - can be removed or kept as overlay if needed, 
+                but Login handles the main gate now. 
+                We'll strictly use !isAuthenticated to show Login. 
+            */}
 
             {/* --- PREMIUM UI LAYER --- */}
 
@@ -1514,6 +1534,7 @@ function Dashboard() {
                             intensity={audioAmp}
                             width={elementSizes.visualizer.w}
                             height={elementSizes.visualizer.h}
+                            assistantConfig={assistantConfig}
                         />
                     </div>
                     {isModularMode && <div className={`absolute top-2 right-2 text-xs font-bold tracking-widest z-20 ${activeDragElement === 'visualizer' ? 'text-green-500' : 'text-yellow-500/50'}`}>VISUALIZER</div>}

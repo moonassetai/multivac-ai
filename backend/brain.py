@@ -12,7 +12,9 @@ import mss
 import argparse
 import math
 import struct
+import struct
 import time
+import requests
 
 from google import genai
 from google.genai import types
@@ -33,8 +35,15 @@ CHUNK_SIZE = 1024
 MODEL = "models/gemini-2.5-flash-native-audio-preview-12-2025"
 DEFAULT_MODE = "camera"
 
-load_dotenv()
-client = genai.Client(http_options={"api_version": "v1beta"}, api_key=os.getenv("GEMINI_API_KEY"))
+# Robust .env loading
+from pathlib import Path
+env_path = Path(__file__).parent.parent / '.env'
+print(f"[DEBUG] Loading .env from: {env_path}")
+load_dotenv(dotenv_path=env_path)
+
+api_key = os.getenv("GEMINI_API_KEY")
+print(f"[DEBUG] Loaded API KEY: {api_key[:5] + '...' if api_key else 'None'}")
+client = genai.Client(http_options={"api_version": "v1beta"}, api_key=api_key)
 
 # Function definitions
 generate_cad = {
@@ -413,19 +422,33 @@ Multivac Core (Main Model)
 - Anti-bot detection: Respect site policies, fail gracefully
 """
 
-config = types.LiveConnectConfig(
-    response_modalities=["AUDIO"],
-    output_audio_transcription={},
-    input_audio_transcription={},
-    system_instruction=system_instruction,
-    tools=tools,
-    speech_config=types.SpeechConfig(
+# Check for ElevenLabs Override
+elevenlabs_voice_id = os.getenv("ELEVENLABS_VOICE_ID")
+if elevenlabs_voice_id:
+    print(f"[{'BRAIN'}] ElevenLabs Voice ID detected: {elevenlabs_voice_id}. Switching Gemini to TEXT output.")
+    response_modalities = ["TEXT"]
+    response_modalities = ["TEXT"]
+    speech_config = None # No speech config needed if text only
+else:
+    response_modalities = ["AUDIO"]
+    speech_config = types.SpeechConfig(
         voice_config=types.VoiceConfig(
             prebuilt_voice_config=types.PrebuiltVoiceConfig(
                 voice_name="Kore"
             )
         )
     )
+
+ai_provider = os.getenv("AI_PROVIDER", "GEMINI").upper()
+lm_studio_url = os.getenv("LM_STUDIO_URL", "http://localhost:1234")
+
+config = types.LiveConnectConfig(
+    response_modalities=response_modalities,
+    output_audio_transcription={}, # Request transcription for logging/frontend
+    input_audio_transcription={}, # Request ASR for user audio
+    system_instruction=system_instruction,
+    tools=tools,
+    speech_config=speech_config
 )
 
 pya = pyaudio.PyAudio()
@@ -482,7 +505,7 @@ class AudioLoop:
         self.cad_agent = CadAgent(on_thought=handle_cad_thought, on_status=handle_cad_status)
         self.web_agent = WebAgent()
         # self.kasa_agent = KasaAgent()  # Temporarily disabled
-        self.kasa_agent = None  # Placeholder
+        self.kasa_agent = None  # Placeholder to satisfy tool requirement. I will view lines 800+ first.
         self.printer_agent = PrinterAgent()
 
         self.send_text_task = None
@@ -497,7 +520,13 @@ class AudioLoop:
         self._latest_image_payload = None
         # VAD State
         self._is_speaking = False
+        self._is_speaking = False
         self._silence_start_time = None
+        
+        # ElevenLabs Buffering
+        self.elevenlabs_voice_id = os.getenv("ELEVENLABS_VOICE_ID")
+        self.tts_buffer = ""
+        self.elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY")
         
         # Initialize ProjectManager
         from project_manager import ProjectManager
@@ -574,6 +603,101 @@ class AudioLoop:
             msg = await self.out_queue.get()
             await self.session.send(input=msg, end_of_turn=False)
 
+    def speak_with_elevenlabs(self, text):
+        if not self.elevenlabs_api_key:
+            print("[BRAIN] [ERR] No ElevenLabs API Key found (ELEVENLABS_API_KEY).")
+            return
+
+        print(f"[BRAIN] [TTS] Generating audio for: '{text}'")
+        try:
+            # ElevenLabs API request (PCM 24kHz)
+            url = f"https://api.elevenlabs.io/v1/text-to-speech/{self.elevenlabs_voice_id}/stream"
+            headers = {
+                "xi-api-key": self.elevenlabs_api_key,
+                "Content-Type": "application/json"
+            }
+            data = {
+                "text": text,
+                "model_id": "eleven_turbo_v2_5", # Updated to new model for free tier
+                "output_format": "pcm_24000"
+            }
+            
+            # Using stream=True to get chunks
+            response = requests.post(url, json=data, headers=headers, stream=True)
+            
+            if response.status_code == 200:
+                # Read chunks and put in audio queue
+                for chunk in response.iter_content(chunk_size=1024):
+                    if chunk:
+                        self.audio_in_queue.put_nowait(chunk)
+            else:
+                print(f"[BRAIN] [ERR] ElevenLabs API Error: {response.status_code} - {response.text}")
+
+        except Exception as e:
+            print(f"[BRAIN] [ERR] TTS Failed: {e}")
+
+    def speak_with_elevenlabs(self, text):
+        if not self.elevenlabs_api_key:
+            print("[BRAIN] [ERR] No ElevenLabs API Key found (ELEVENLABS_API_KEY).")
+            return
+
+        print(f"[BRAIN] [TTS] Generating audio for: '{text}'")
+        try:
+            # ElevenLabs API request (PCM 24kHz)
+            url = f"https://api.elevenlabs.io/v1/text-to-speech/{self.elevenlabs_voice_id}/stream"
+            headers = {
+                "xi-api-key": self.elevenlabs_api_key,
+                "Content-Type": "application/json"
+            }
+            data = {
+                "text": text,
+                "model_id": "eleven_turbo_v2_5", # Updated to new model for free tier
+                "output_format": "pcm_24000"
+            }
+            
+            # Using stream=True to get chunks
+            response = requests.post(url, json=data, headers=headers, stream=True)
+            
+            if response.status_code == 200:
+                # Read chunks and put in audio queue
+                for chunk in response.iter_content(chunk_size=1024):
+                    if chunk:
+                        self.audio_in_queue.put_nowait(chunk)
+            else:
+                print(f"[BRAIN] [ERR] ElevenLabs API Error: {response.status_code} - {response.text}")
+
+        except Exception as e:
+            print(f"[BRAIN] [ERR] TTS Failed: {e}")
+
+    def ask_local_llm(self, text):
+        print(f"[BRAIN] [LOCAL] Querying LM Studio: '{text}'")
+        try:
+            payload = {
+                "model": "local-model", # Model name often ignored by LM Studio, but required
+                "messages": [
+                    {"role": "system", "content": system_instruction},
+                    {"role": "user", "content": text}
+                ],
+                "temperature": 0.7
+            }
+            response = requests.post(
+                f"{lm_studio_url}/v1/chat/completions",
+                json=payload,
+                headers={"Content-Type": "application/json"},
+                timeout=30
+            ) 
+            if response.status_code == 200:
+                data = response.json()
+                reply = data['choices'][0]['message']['content']
+                print(f"[BRAIN] [LOCAL] Response: {reply[:50]}...")
+                return reply
+            else:
+                print(f"[BRAIN] [ERR] LM Studio Error: {response.status_code} - {response.text}")
+                return "I'm having trouble connecting to my local brain."
+        except Exception as e:
+            print(f"[BRAIN] [ERR] Local LLM Failed: {e}")
+            return "Local brain is offline."
+
     async def listen_audio(self):
         mic_info = pya.get_default_input_device_info()
 
@@ -604,6 +728,8 @@ class AudioLoop:
                 print(f"[ADA] Resolved input device '{self.input_device_name}' to index {resolved_input_device_index} ({best_match})")
             else:
                 print(f"[ADA] Could not find device matching '{self.input_device_name}'. Checking index...")
+
+
 
         # Fallback to index if Name lookup failed or wasn't provided
         if resolved_input_device_index is None and self.input_device_index is not None:
@@ -935,6 +1061,54 @@ class AudioLoop:
                                         else:
                                             # Append
                                             self.chat_buffer["text"] += delta
+                                        
+                                        # --- ELEVENLABS TTS LOGIC ---
+                                        if self.elevenlabs_voice_id:
+                                            self.tts_buffer += delta
+                                            # Simple heuristic: Speak on sentence boundaries
+                                            # Check for [. ? !] followed by space or end
+                                            import re
+                                            # Using a regex to find sentence endings. 
+                                            # Be careful not to split "Mr." or "Dr." etc (complex, so we keep it simple)
+                                            if re.search(r'[.?!](?:\s|$)', self.tts_buffer):
+                                                # Find the split point (last punctuation)
+                                                # Actually, let's just speak the whole buffer if it ends with punctuation
+                                                # to ensure we don't cut off mid-sentence words that haven't arrived yet?
+                                                # But we might have minimal lookahead.
+                                                
+                                                # Better: split by punctuation, speak completed sentences, keep remainder
+                                                parts = re.split(r'([.?!])', self.tts_buffer)
+                                                # parts will be ["sentence", ".", " sentence", "?", " remainder"]
+                                                
+                                                # If we have at least one sentence + punctuation
+                                                if len(parts) > 1:
+                                                    to_speak = ""
+                                                    remainder = ""
+                                                    
+                                                    # Reassemble
+                                                    # We want pairs (sentence + punct)
+                                                    # Loop 0..len-2
+                                                    
+                                                    # If last part is empty (ended with punct), then everything is speakable
+                                                    # If last part is not empty, it's remainder
+                                                    
+                                                    cutoff_index = len(parts) - 1
+                                                    if parts[-1].strip() == "":
+                                                        # Ends with empty string after split, so entire buffer is sentence(s)
+                                                        to_speak = self.tts_buffer
+                                                        remainder = ""
+                                                    else:
+                                                        # Last part is incomplete sentence
+                                                        # Determine cutoff. 
+                                                        # parts = ["Hello", ".", " How", "?", " I am"] -> len 5
+                                                        # We want to keep " I am" (index 4)
+                                                        # Speak 0..3
+                                                        remainder = parts[-1]
+                                                        to_speak = "".join(parts[:-1])
+                                                    
+                                                    if to_speak.strip():
+                                                        asyncio.create_task(asyncio.to_thread(self.speak_with_elevenlabs, to_speak))
+                                                        self.tts_buffer = remainder
                         
                         # Flush buffer on turn completion if needed, 
                         # but usually better to wait for sender switch or explicit end.
@@ -1398,6 +1572,62 @@ class AudioLoop:
          pass
 
     async def run(self, start_message=None):
+        if ai_provider == "LOCAL":
+            print(f"[BRAIN] Starting in LOCAL MODE (Provider: LM Studio at {lm_studio_url})")
+            
+            # Local Mode Loop
+            self.session = None # No Gemini session
+            self.audio_in_queue = asyncio.Queue()
+            self.out_queue = asyncio.Queue(maxsize=10)
+            
+            # Start Camera if needed (Local Vision not yet implemented, but keep structure)
+            if self.video_mode == "camera":
+                pass # Local vision to be added
+            
+            # Send initial update
+            if self.on_project_update and self.project_manager:
+                self.on_project_update(self.project_manager.current_project)
+
+            while not self.stop_event.is_set():
+                try:
+                    # Wait for user input (Text only for now in Local Mode)
+                    msg_content = await self.out_queue.get()
+                    
+                    # Log User Message
+                    if isinstance(msg_content, str):
+                        print(f"[BRAIN] [LOCAL] User Input: {msg_content}")
+                        # Update Chat UI
+                        if self.on_transcription:
+                            self.on_transcription({"sender": "User", "text": msg_content})
+                        
+                        # Query Local LLM
+                        response_text = await asyncio.to_thread(self.ask_local_llm, msg_content)
+                        
+                        # Update Chat UI with AI Response
+                        if self.on_transcription:
+                            self.on_transcription({"sender": "Multivac", "text": response_text})
+                            
+                        # Log to History
+                        self.project_manager.log_chat("User", msg_content)
+                        self.project_manager.log_chat("Multivac", response_text)
+                        
+                        # Try TTS if configured (and quota available)
+                        # We use the same speak method, which checks keys etc.
+                        if self.elevenlabs_api_key:
+                             asyncio.create_task(asyncio.to_thread(self.speak_with_elevenlabs, response_text))
+
+                    elif isinstance(msg_content, dict):
+                        # Handle other types if any (e.g. image payloads?)
+                        pass
+                        
+                except Exception as e:
+                    print(f"[BRAIN] [ERR] Local Loop Error: {e}")
+                    await asyncio.sleep(1)
+            
+            print("[BRAIN] Local Mode Ended")
+            return
+
+        # GEMINI MODE (Original Logic)
         retry_delay = 1
         is_reconnect = False
         
@@ -1455,19 +1685,21 @@ class AudioLoop:
                     # Reset retry delay on successful connection
                     retry_delay = 1
                     
-                    # Wait until stop event, or until the session task group exits (which happens on error)
-                    # Actually, the TaskGroup context manager will exit if any tasks fail/cancel.
-                    # We need to keep this block alive.
-                    # The original code just waited on stop_event, but that doesn't account for session death.
-                    # We should rely on the TaskGroup raising an exception when subtasks fail (like receive_audio).
-                    
-                    # However, since receive_audio is a task in the group, if it crashes (connection closed), 
+                    # Keep the loop alive
+                    while not self.stop_event.is_set():
+                         await asyncio.sleep(0.5)
+
+            except Exception as e:
+                print(f"Error in main loop: {e}")
+                traceback.print_exc()
+                is_reconnect = True 
+                retry_delay = min(retry_delay * 2, 30)
+                print(f"Reconnecting in {retry_delay} seconds...")
+                await asyncio.sleep(retry_delay)                  # However, since receive_audio is a task in the group, if it crashes (connection closed), 
                     # the group will cancel others and exit. We catch that exit below.
                     
                     # We can await stop_event, but if the connection dies, receive_audio crashes -> group closes -> we exit `async with` -> restart loop.
                     # To ensure we don't block indefinitely if connection dies silently (unlikely with receive_audio), we just wait.
-                    await self.stop_event.wait()
-
             except asyncio.CancelledError:
                 print(f"[ADA DEBUG] [STOP] Main loop cancelled.")
                 break

@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { X, RefreshCw, Printer, Thermometer, Clock, FileText, CheckCircle, AlertTriangle, ExternalLink } from 'lucide-react';
 
-const { shell } = window.require('electron');
+// Safe shell wrapper
+// Safe shell wrapper
+const openExternal = (url) => {
+    try {
+        if (typeof window !== 'undefined' && typeof window.require === 'function') {
+            const { shell } = window.require('electron');
+            shell.openExternal(url);
+        } else {
+            window.open(url, '_blank');
+        }
+    } catch (e) {
+        console.error("Failed to open external link via Electron:", e);
+        window.open(url, '_blank');
+    }
+};
 
 const PrinterWindow = ({
     socket,
@@ -221,7 +235,7 @@ const PrinterWindow = ({
                                     <div className="flex items-center gap-2">
                                         {/* Open Interface Button */}
                                         <button
-                                            onClick={() => shell.openExternal(`http://${printer.host}`)}
+                                            onClick={() => openExternal(`http://${printer.host}`)}
                                             className="flex items-center gap-1 text-[10px] text-cyan-400 hover:text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 px-2 py-0.5 rounded transition-colors"
                                             title="Open printer web interface"
                                         >

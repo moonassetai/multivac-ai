@@ -26,3 +26,5 @@ python-kasa
 
 # Utilities
 python-dotenv
+
+requests

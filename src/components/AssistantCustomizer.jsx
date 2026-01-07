@@ -52,7 +52,11 @@ const AssistantCustomizer = ({ socket, onClose }) => {
         name: 'Multivac',
         voice: 'Kore',
         personality: 'default',
-        customPrompt: ''
+        name: 'Multivac',
+        voice: 'Kore',
+        personality: 'default',
+        customPrompt: '',
+        avatarUrl: ''
     });
     const [originalConfig, setOriginalConfig] = useState(null);
     const [hasChanges, setHasChanges] = useState(false);
@@ -69,7 +73,11 @@ const AssistantCustomizer = ({ socket, onClose }) => {
                 name: data.name || 'Multivac',
                 voice: data.voice || 'Kore',
                 personality: data.personality || 'default',
-                customPrompt: data.custom_personality_prompt || ''
+                name: data.name || 'Multivac',
+                voice: data.voice || 'Kore',
+                personality: data.personality || 'default',
+                customPrompt: data.custom_personality_prompt || '',
+                avatarUrl: data.avatar_url || ''
             };
             setConfig(loadedConfig);
             setOriginalConfig(loadedConfig);
@@ -130,7 +138,11 @@ const AssistantCustomizer = ({ socket, onClose }) => {
             name: config.name,
             voice: config.voice,
             personality: config.personality,
-            custom_personality_prompt: config.customPrompt
+            name: config.name,
+            voice: config.voice,
+            personality: config.personality,
+            custom_personality_prompt: config.customPrompt,
+            avatar_url: config.avatarUrl
         };
 
         socket.emit('update_assistant_config', saveData);
@@ -145,6 +157,17 @@ const AssistantCustomizer = ({ socket, onClose }) => {
     const handleReset = () => {
         if (originalConfig) {
             setConfig(originalConfig);
+        }
+    };
+
+    const handleFileUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setConfig(prev => ({ ...prev, avatarUrl: reader.result }));
+            };
+            reader.readAsDataURL(file);
         }
     };
 
@@ -187,8 +210,8 @@ const AssistantCustomizer = ({ socket, onClose }) => {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 transition-all ${activeTab === tab.id
-                                    ? 'bg-cyan-500/10 border-b-2 border-cyan-500 text-cyan-400'
-                                    : 'text-cyan-600 hover:text-cyan-400 hover:bg-cyan-500/5'
+                                ? 'bg-cyan-500/10 border-b-2 border-cyan-500 text-cyan-400'
+                                : 'text-cyan-600 hover:text-cyan-400 hover:bg-cyan-500/5'
                                 }`}
                         >
                             <tab.icon className="w-4 h-4" />
@@ -218,6 +241,43 @@ const AssistantCustomizer = ({ socket, onClose }) => {
                                 </p>
                             </div>
 
+                            <div>
+                                <label className="block text-sm font-medium text-cyan-400 mb-2">
+                                    Custom Avatar URL (Optional)
+                                </label>
+                                <input
+                                    type="text"
+                                    value={config.avatarUrl}
+                                    onChange={(e) => setConfig(prev => ({ ...prev, avatarUrl: e.target.value }))}
+                                    placeholder="https://example.com/my-avatar.png"
+                                    className="w-full bg-gray-900/50 border border-cyan-800/50 rounded-lg px-4 py-3 text-cyan-100 placeholder-cyan-800 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
+                                />
+                                <p className="mt-2 text-xs text-cyan-600">
+                                    Provide a direct link to an image (PNG, JPG, GIF) to replace the default logo.
+                                </p>
+                                <div className="mt-3 flex items-center gap-2">
+                                    <div className="h-px flex-1 bg-cyan-900/50"></div>
+                                    <span className="text-xs text-cyan-700 font-medium">OR</span>
+                                    <div className="h-px flex-1 bg-cyan-900/50"></div>
+                                </div>
+                                <div className="mt-3">
+                                    <label className="flex flex-col items-center justify-center w-full h-24 border-2 border-cyan-800/50 border-dashed rounded-lg cursor-pointer bg-gray-900/30 hover:bg-cyan-900/10 hover:border-cyan-500/50 transition-all">
+                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <svg className="w-6 h-6 text-cyan-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                            </svg>
+                                            <p className="text-xs text-cyan-500">Click to upload image/GIF</p>
+                                        </div>
+                                        <input
+                                            type="file"
+                                            className="hidden"
+                                            accept="image/*"
+                                            onChange={handleFileUpload}
+                                        />
+                                    </label>
+                                </div>
+                            </div>
+
                             <div className="bg-gradient-to-br from-cyan-900/10 to-blue-900/10 border border-cyan-800/30 rounded-lg p-4">
                                 <h3 className="text-sm font-medium text-cyan-400 mb-2">Preview</h3>
                                 <div className="text-cyan-100 text-sm space-y-1">
@@ -241,8 +301,8 @@ const AssistantCustomizer = ({ socket, onClose }) => {
                                             key={voice.id}
                                             onClick={() => handleVoiceChange(voice.id)}
                                             className={`p-4 rounded-lg border-2 transition-all text-left ${config.voice === voice.id
-                                                    ? 'border-cyan-500 bg-cyan-500/10'
-                                                    : 'border-cyan-900/30 bg-gray-900/30 hover:border-cyan-700 hover:bg-cyan-900/10'
+                                                ? 'border-cyan-500 bg-cyan-500/10'
+                                                : 'border-cyan-900/30 bg-gray-900/30 hover:border-cyan-700 hover:bg-cyan-900/10'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between">
@@ -287,8 +347,8 @@ const AssistantCustomizer = ({ socket, onClose }) => {
                                             key={id}
                                             onClick={() => handlePersonalityChange(id)}
                                             className={`p-3 rounded-lg border transition-all text-left ${config.personality === id
-                                                    ? 'border-cyan-500 bg-cyan-500/10'
-                                                    : 'border-cyan-900/30 bg-gray-900/30 hover:border-cyan-700'
+                                                ? 'border-cyan-500 bg-cyan-500/10'
+                                                : 'border-cyan-900/30 bg-gray-900/30 hover:border-cyan-700'
                                                 }`}
                                         >
                                             <h4 className="font-medium text-cyan-300 text-sm">{template.name}</h4>

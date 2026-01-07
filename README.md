@@ -179,12 +179,27 @@ Multivac requires access to the Gemini API and ElevenLabs (optional).
 ### 2. 🔐 Face Authentication (Optional)
 To use secure voice features, Multivac needs to know what you look like.
 
-1.  Take a clear photo of your face.
-2.  Rename it to `reference.jpg`.
-3.  Place it in the `backend/` folder.
-4.  Toggle `"face_auth_enabled": true` in `settings.json` (generated after first run).
+3.  **Place it in `backend/`**: Rename to `reference.jpg`.
+4.  **Enable**: Toggle `"face_auth_enabled": true` in `settings.json`.
 
-### 3. 🖨️ 3D Printer Setup
+### 3. 🧠 Local LLM (LM Studio)
+Secure, offline text processing using your own hardware.
+
+1.  **Download**: [LM Studio](https://lmstudio.ai/).
+2.  **Load Model**: Download any LLM (e.g., Llama 3, Mistral).
+3.  **Start Server**: the "Local Server" tab -> "Start Server" (Port 1234).
+4.  **Configure**: Set `AI_PROVIDER=LOCAL` in your `.env` file.
+5.  **Restart**: Run `start_multivac.bat`.
+
+### 4. 🔥 Firebase Authentication
+Secure Google Login for the dashboard.
+
+1.  **Create Project**: Go to [Firebase Console](https://console.firebase.google.com/).
+2.  **Enable Auth**: Authentication -> Sign-in method -> Google -> Enable.
+3.  **Get Config**: Project Settings -> General -> Your apps -> Config.
+4.  **Update File**: Open `src/firebaseConfig.js` and paste your `apiKey`, `appId`, etc.
+
+### 5. 🖨️ 3D Printer Setup
 Multivac can slice STL files and send them to your printer (Klipper/Moonraker/OctoPrint).
 
 1.  **Install Slicer**: Install [OrcaSlicer](https://github.com/SoftFever/OrcaSlicer). Multivac detects it automatically.
