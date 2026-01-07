@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multivac AI - Gaming Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. THE SETUP */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050b14; /* Deep gaming black/blue */
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px 0;
+  place-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.slide-container {
+  align-items: center;
+  background-color: #0f172a;
+  border-radius: 16px;
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.15); /* Purple glow */
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px;
+  position: relative;
+  width: 1280px;
+  color: #f1f5f9;
+}
+
+/* Background Gradients & Effects */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(125deg, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hexagon Grid Pattern Overlay */
+.slide-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. TYPOGRAPHY */
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+  background: linear-gradient(to right, #22d3ee, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+h2.slide-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: left;
+  border-left: 5px solid #e879f9; /* Pink/Purple accent */
+  padding-left: 20px;
+  color: #fff;
+}
+
+h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #22d3ee; /* Cyan accent */
+  margin-bottom: 15px;
+}
+
+p, li, td, th {
+  font-size: 19px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* 3. LAYOUTS */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Title Slide */
+.title-layout {
+  text-align: center;
+  z-index: 2;
+}
+
+.title-layout p.tagline {
+  font-size: 32px;
+  color: #e879f9;
+  font-family: 'Rajdhani', sans-serif;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.title-layout .quote {
+  font-style: italic;
+  font-size: 22px;
+  color: #94a3b8;
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+.launch-badge {
+    display: inline-block;
+    background: rgba(232, 121, 249, 0.1);
+    border: 1px solid #e879f9;
+    color: #e879f9;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Two Column */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  width: 100%;
+  align-items: center;
+}
+
+.two-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.two-column li {
+  margin-bottom: 25px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.two-column li::before {
+  content: '\f11b'; /* Gamepad icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: #e879f9;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  top: 5px;
+}
+
+.image-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.two-column .image-wrapper img {
+    object-fit: contain;
+}
+
+/* Tiled Text with Icons */
+.tiled-content {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.tile {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  flex: 1;
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #22d3ee, #e879f9);
+}
+
+.tile .icon {
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
+}
+
+/* Timeline */
+.timeline-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+}
+
+.timeline-layout::before {
+  content: '';
+  position: absolute;
+  top: 55px;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  z-index: 0;
+}
+
+/* Progress bar effect */
+.timeline-layout::after {
+    content: '';
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, #22d3ee, #e879f9);
+    z-index: 0;
+    box-shadow: 0 0 10px #e879f9;
+}
+
+.timeline-item {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+}
+
+.timeline-item::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: #0f172a;
+  border: 2px solid #22d3ee;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2);
+}
+
+.timeline-item:nth-child(even)::before {
+    border-color: #e879f9;
+    box-shadow: 0 0 0 4px rgba(232, 121, 249, 0.2);
+}
+
+.timeline-item h3 {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Tiled Images */
+.image-tile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.image-tile .image-wrapper {
+    height: 240px;
+}
+.image-tile p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #22d3ee;
+}
+
+/* Table */
+.table-layout table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table-layout th {
+  text-align: left;
+  padding: 20px;
+  color: #94a3b8;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #334155;
+}
+
+.table-layout td {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  font-size: 18px;
+}
+
+.table-layout tr td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.table-layout tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.table-layout .check { color: #10b981; }
+.table-layout .cross { color: #ef4444; opacity: 0.5; }
+.table-layout .highlight-row td {
+    background: rgba(34, 211, 238, 0.05);
+    border: 1px solid rgba(34, 211, 238, 0.1);
+}
+
+/* Bleed Image */
+.slide-container.bleed-image-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
+  align-items: start;
+}
+
+.slide-container.bleed-image-layout > .content-container {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.slide-container.bleed-image-layout > .image-container {
+  height: 100%;
+  width: 100%;
+}
+
+.slide-container.bleed-image-layout img.bleed-image-side {
+  width: 100%;
+  height: 100%;
+  max-height: 720px;
+  object-fit: cover;
+}
+
+/* Full Background */
+.full-bg-image {
+    background-size: cover;
+    background-position: center;
+}
+.full-bg-image .content-overlay {
+    background: rgba(5, 11, 20, 0.9);
+    padding: 60px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+/* Section Title (Q&A style) */
+.section-title-layout {
+    text-align: center;
+}
+.section-title-layout h2 {
+    font-size: 70px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #22d3ee 0%, #e879f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #22d3ee, #e879f9);
+    color: white;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    border-radius: 50px;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(232, 121, 249, 0.3);
+    transition: transform 0.2s;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title Slide -->
+<div class="slide-container full-bg-image" id="slide1" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1280&h=720&fit=crop');">
+    <div class="content-overlay">
+        <div class="launch-badge">OFFICIAL LAUNCH</div>
+        <h1>MULTIVAC AI</h1>
+        <p class="tagline">Bridging AI, Gaming, and Vision in a Single Interface</p>
+        <p class="quote">"The last question was asked for the first time, half in jest, on May 31, 2026..." — Isaac Asimov</p>
+    </div>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">The Problem</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul>
+                    <li><strong>Limited Action:</strong> Current AI assistants can answer questions but cannot navigate complex game engines or OS tasks.</li>
+                    <li><strong>Fragmented Workflow:</strong> Game devs switch between Blender, Unity, Discord, and Browsers constantly.</li>
+                    <li><strong>No Autonomous Agents:</strong> You have to play alone or script complex bots manually.</li>
+                    <li><strong>Cloud Dependency:</strong> High latency cloud AI is too slow for real-time gaming or asset generation.</li>
+                </ul>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&h=400&fit=crop" alt="Frustrated gamer with multiple screens">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: The Solution -->
+<div class="slide-container bleed-image-layout" id="slide3">
+    <div class="content-container">
+        <h2 class="slide-title" style="margin-bottom: 20px;">The Solution</h2>
+        <h3>Multivac AI: Gaming Edition</h3>
+        <p style="margin-bottom: 20px;">A sophisticated local entity evolving from Asimov's supercomputer. It combines Gemini 2.5 Native Audio with precise game control and vision.</p>
+        <p><strong>Universal Game Master:</strong> Whether managing your RGB environment, generating assets on the fly, or playing alongside you as an AI Agent, Multivac executes complex gaming workflows.</p>
+    </div>
+    <div class="image-container">
+        <img class="bleed-image-side" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=640&h=720&fit=crop" alt="Multivac AI Interface">
+    </div>
+</div>
+
+<!-- Slide 4: Core Capabilities I -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">Complete System Control</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                <h3>Multivac Voice</h3>
+                <p>Real-time, low-latency command channel. Shout commands in-game without alt-tabbing.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-gamepad"></i></div>
+                <h3>Input Control</h3>
+                <p>System-wide keyboard and mouse automation. It can execute complex combos or manage inventory.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-window-restore"></i></div>
+                <h3>Window Mgmt</h3>
+                <p>Launch games, resize streams, and focus Discord via natural language commands.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Core Capabilities II -->
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">Physical & Digital Bridging</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-cubes"></i></div>
+                <h3>Asset Gen</h3>
+                <p>Generate 3D game assets, textures, and simple levels via voice prompts directly to STL/OBJ.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-hand"></i></div>
+                <h3>Vision & Gesture</h3>
+                <p>"Minority Report" style HUD control via webcam. Pinch to mute, swipe to switch scenes.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-robot"></i></div>
+                <h3>AI Game Agent</h3>
+                <p><strong>NEW:</strong> Deploy an autonomous AI agent to test levels or play coop as a smart NPC.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Demo Flow -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">From Concept to Level</h2>
+    <div class="content-area">
+        <div class="timeline-layout">
+            <div class="timeline-item">
+                <h3>1. Voice Command</h3>
+                <p>"Create a sci-fi corridor asset."</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2. Generation</h3>
+                <p>Multivac generates 3D mesh.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>3. Iteration</h3>
+                <p>"Add battle damage textures."</p>
+            </div>
+            <div class="timeline-item">
+                <h3>4. Deployment</h3>
+                <p>Exports to Unity/Unreal Engine.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Use Cases -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Compelling Scenarios</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="image-tile">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=240&fit=crop" alt="Level Design"></div>
+                <p>The Level Designer's Dream</p>
+            </div>
+            <div class="image-tile">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=240&fit=crop" alt="AI Agent Coop"></div>
+                <p>Your AI Coop Partner</p>
+            </div>
+            <div class="image-tile">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=240&fit=crop" alt="RGB Room"></div>
+                <p>Immersive Room Control</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: Technology Architecture -->
+<div class="slide-container bleed-image-layout" id="slide8">
+    <div class="content-container">
+        <h2 class="slide-title">Architecture</h2>
+        <ul>
+            <li><strong>AI Engine:</strong> Gemini 2.5 Native Audio + Vision</li>
+            <li><strong>Backend:</strong> Python 3.11, FastAPI, Socket.IO</li>
+            <li><strong>Game Integration:</strong> Direct hooks into OS inputs and window management.</li>
+            <li><strong>Agents:</strong> Modular Python agents for Assets (build123d), Web, and Gaming Logic.</li>
+        </ul>
+    </div>
+    <div class="image-container">
+        <img class="bleed-image-side" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=640&h=720&fit=crop" alt="Architecture Diagram">
+    </div>
+</div>
+
+<!-- Slide 9: Competitive Advantage -->
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">Competitive Landscape</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Multivac AI</th>
+                        <th>Cloud AI (Siri/Alexa)</th>
+                        <th>Auto Tools (AHK)</th>
+                        <th>Engine (Unreal)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>Full OS Control</td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Voice-to-Asset</td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Gaming Agents</td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Multi-Modal</td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-check check"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                        <td><i class="fa-solid fa-xmark cross"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 10: Open Source & Community -->
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Open Source</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Built by Gamers, for Gamers</h3>
+                <ul>
+                    <li><strong>License:</strong> MIT (Fully Open Source)</li>
+                    <li><strong>Repository:</strong> github.com/moonassetai/multivac-ai</li>
+                    <li><strong>Community:</strong> Modding community extending capabilities for specific games (Minecraft, Roblox, etc).</li>
+                </ul>
+            </div>
+            <div class="image-wrapper" style="background: transparent; border: none; box-shadow: none;">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Open Source Network">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: Roadmap -->
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Roadmap</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 16px;">
+                <h3><i class="fa-solid fa-calendar-check" style="margin-right: 10px;"></i> Near Term</h3>
+                <ul style="text-align: left; margin-top: 20px;">
+                    <li><strong>Autonomous Gaming Agent</strong></li>
+                    <li>Mobile Companion App</li>
+                    <li>Twitch/Stream Integration</li>
+                </ul>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 16px;">
+                <h3><i class="fa-solid fa-rocket" style="margin-right: 10px;"></i> Future Vision</h3>
+                <ul style="text-align: left; margin-top: 20px;">
+                    <li>Procedural World Gen</li>
+                    <li>Plugin Marketplace</li>
+                    <li>Voice Cloning for NPCs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 12: Call to Action -->
+<div class="slide-container full-bg-image" id="slide12" style="background-image: url('https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=1280&h=720&fit=crop');">
+    <div class="content-overlay">
+        <h2>Experience the Future</h2>
+        <p>Clone the repo. Start the engine. Meet your new coop partner.</p>
+        <div style="margin-top: 20px; font-family: 'Courier New', monospace; background: rgba(0,0,0,0.5); padding: 10px; display: inline-block; border-radius: 5px; border: 1px solid #22d3ee;">
+            > .\start_multivac.bat
+        </div>
+        <br>
+        <a href="#" class="cta-button">Launch Date: May 31, 2026</a>
+        <p style="margin-top: 30px; font-size: 16px; opacity: 0.8;">Built by OKI Moon | github.com/moonassetai</p>
+    </div>
+</div>
+
+</body>
+</html>

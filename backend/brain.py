@@ -581,7 +581,7 @@ class AudioLoop:
         resolved_input_device_index = None
         
         if self.input_device_name:
-            print(f"[ADA] Attempting to find input device matching: '{self.input_device_name}'")
+            print(f"[BRAIN] Attempting to find input device matching: '{self.input_device_name}'")
             count = pya.get_device_count()
             best_match = None
             

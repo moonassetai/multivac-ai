@@ -22,10 +22,10 @@ from pathlib import Path
 
 # ... (imports)
 
-# Ensure we can import ada
+# Ensure we can import brain
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-import ada
+import brain
 from authenticator import FaceAuthenticator
 # from kasa_agent import KasaAgent  # Temporarily disabled due to conda environment conflict
 
@@ -155,12 +155,12 @@ async def startup_event():
 
 @app.get("/status")
 async def status():
-    return {"status": "running", "service": "A.D.A Backend"}
+    return {"status": "running", "service": "Multivac Backend"}
 
 @sio.event
 async def connect(sid, environ):
     print(f"Client connected: {sid}")
-    await sio.emit('status', {'msg': 'Connected to A.D.A Backend'}, room=sid)
+    await sio.emit('status', {'msg': 'Connected to Multivac Backend'}, room=sid)
 
     global authenticator
     
@@ -232,7 +232,7 @@ async def start_audio(sid, data=None):
              loop_task = None
         else:
              print("Audio loop already running. Re-connecting client to session.")
-             await sio.emit('status', {'msg': 'A.D.A Already Running'})
+             await sio.emit('status', {'msg': 'Multivac Already Running'})
              return
 
 
@@ -255,7 +255,7 @@ async def start_audio(sid, data=None):
         
     # Callback to send Transcription data to frontend
     def on_transcription(data):
-        # data = {"sender": "User"|"ADA", "text": "..."}
+        # data = {"sender": "User"|"Multivac", "text": "..."}
         asyncio.create_task(sio.emit('transcription', data))
 
     # Callback to send Confirmation Request to frontend
@@ -267,7 +267,7 @@ async def start_audio(sid, data=None):
     # Callback to send CAD status to frontend
     def on_cad_status(status):
         # status can be: 
-        # - a string like "generating" (from ada.py handle_cad_request)
+        # - a string like "generating" (from brain.py handle_cad_request)
         # - a dict with {status, attempt, max_attempts, error} (from CadAgent)
         if isinstance(status, dict):
             print(f"Sending CAD Status: {status.get('status')} (attempt {status.get('attempt')}/{status.get('max_attempts')})")
@@ -297,10 +297,10 @@ async def start_audio(sid, data=None):
         print(f"Sending Error to frontend: {msg}")
         asyncio.create_task(sio.emit('error', {'msg': msg}))
 
-    # Initialize ADA
+    # Initialize Brain
     try:
         print(f"Initializing AudioLoop with device_index={device_index}")
-        audio_loop = ada.AudioLoop(
+        audio_loop = brain.AudioLoop(
             video_mode="none", 
             on_audio_data=on_audio_data,
             on_cad_data=on_cad_data,
@@ -362,7 +362,7 @@ async def start_audio(sid, data=None):
         asyncio.create_task(monitor_printers_loop())
         
     except Exception as e:
-        print(f"CRITICAL ERROR STARTING ADA: {e}")
+        print(f"CRITICAL ERROR STARTING BRAIN: {e}")
         import traceback
         traceback.print_exc()
         await sio.emit('error', {'msg': f"Failed to start: {str(e)}"})
@@ -746,7 +746,7 @@ async def discover_printers(sid):
             return
         else:
             await sio.emit('printer_list', [])
-            await sio.emit('status', {'msg': "Connect to A.D.A to enable printer discovery"})
+            await sio.emit('status', {'msg': "Connect to Multivac to enable printer discovery"})
             return
         
     try:
