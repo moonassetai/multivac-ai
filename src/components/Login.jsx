@@ -22,10 +22,7 @@ const Login = () => {
 
                 {/* Animated Icon */}
                 <div className="mb-8 relative">
-                    <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full animate-pulse"></div>
-                    <div className="relative bg-black p-4 rounded-full border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.5)]">
-                        <Lock className="w-8 h-8 text-cyan-400" />
-                    </div>
+                    <img src="/logo.png" alt="Multivac Logo" className="w-24 h-24 rounded-2xl shadow-[0_0_30px_rgba(34,211,238,0.3)] border border-cyan-500/50" />
                 </div>
 
                 <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">

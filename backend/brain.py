@@ -440,7 +440,9 @@ else:
     )
 
 ai_provider = os.getenv("AI_PROVIDER", "GEMINI").upper()
+ai_provider = os.getenv("AI_PROVIDER", "GEMINI").upper()
 lm_studio_url = os.getenv("LM_STUDIO_URL", "http://localhost:1234")
+lm_studio_model = os.getenv("LM_STUDIO_MODEL", "local-model") # Allow model override
 
 config = types.LiveConnectConfig(
     response_modalities=response_modalities,
@@ -673,7 +675,7 @@ class AudioLoop:
         print(f"[BRAIN] [LOCAL] Querying LM Studio: '{text}'")
         try:
             payload = {
-                "model": "local-model", # Model name often ignored by LM Studio, but required
+                "model": lm_studio_model, # Use configured model name
                 "messages": [
                     {"role": "system", "content": system_instruction},
                     {"role": "user", "content": text}
@@ -685,7 +687,7 @@ class AudioLoop:
                 json=payload,
                 headers={"Content-Type": "application/json"},
                 timeout=30
-            ) 
+            )
             if response.status_code == 200:
                 data = response.json()
                 reply = data['choices'][0]['message']['content']
@@ -697,6 +699,7 @@ class AudioLoop:
         except Exception as e:
             print(f"[BRAIN] [ERR] Local LLM Failed: {e}")
             return "Local brain is offline."
+
 
     async def listen_audio(self):
         mic_info = pya.get_default_input_device_info()

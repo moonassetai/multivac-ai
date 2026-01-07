@@ -1,10 +1,17 @@
 # Multivac AI - The Last Question Answered
 
+<p align="center">
+  <img src="public/logo.png" alt="Multivac Logo" width="200" style="border-radius: 20px; box-shadow: 0 0 50px rgba(34, 211, 238, 0.3);">
+</p>
+
+
 ![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11-blue?logo=python)
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)
 ![Electron](https://img.shields.io/badge/Electron-28-47848F?logo=electron)
 ![Gemini](https://img.shields.io/badge/Google%20Gemini-Native%20Audio-4285F4?logo=google)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+[**📖 View Brand Identity & Vision Deck**](docs/BRAND_DECK.md)
 
 > "The last question was asked for the first time, half in jest, on May 31, 2026..."
 

@@ -13,6 +13,7 @@ import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import ConfirmationPopup from './components/ConfirmationPopup';
 // AuthLock removed in favor of Firebase Login
 import Login from './components/Login';
+import Waitlist from './components/Waitlist';
 import { auth } from './firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth'; // Import listener
 import KasaWindow from './components/KasaWindow';
@@ -40,9 +41,17 @@ function Dashboard() {
     console.log("App component rendering");
     const [status, setStatus] = useState('Disconnected');
     const [socketConnected, setSocketConnected] = useState(socket.connected); // Track socket connection reactively
-    // Auth State
+    // --- WHITELIST CONFIGURATION ---
+    // TODO: Add your actual Google Email here to bypass the waitlist!
+    const WHITELIST = [
+        'admin@multivac.com',
+        'test@gmail.com',
+        // Add User's Email Here
+    ];
+
     // Auth State
     const [isAuthenticated, setIsAuthenticated] = useState(false); // Default to false, wait for Firebase
+    const [isWhitelisted, setIsWhitelisted] = useState(false);
     const [user, setUser] = useState(null); // Track user object
 
     useEffect(() => {
@@ -52,11 +61,20 @@ function Dashboard() {
                 console.log("User logged in:", currentUser.email);
                 setUser(currentUser);
                 setIsAuthenticated(true);
+
+                // Check Whitelist (Case Insensitive)
+                if (WHITELIST.includes(currentUser.email.toLowerCase())) {
+                    setIsWhitelisted(true);
+                } else {
+                    setIsWhitelisted(false);
+                }
+
                 setIsLockScreenVisible(false); // Hide login screen
             } else {
                 console.log("User logged out");
                 setUser(null);
                 setIsAuthenticated(false);
+                setIsWhitelisted(false);
                 setIsLockScreenVisible(true); // Show login screen
             }
         });
@@ -1406,6 +1424,13 @@ function Dashboard() {
                 </div>
             )}
 
+            {/* Waitlist Layer - Shows if authenticated but NOT whitelisted */}
+            {isAuthenticated && !isWhitelisted && (
+                <div className="absolute inset-0 z-[90]">
+                    <Waitlist user={user} onLogout={() => auth.signOut()} />
+                </div>
+            )}
+
             {/* Legacy Lock Screen Logic - can be removed or kept as overlay if needed, 
                 but Login handles the main gate now. 
                 We'll strictly use !isAuthenticated to show Login. 
@@ -1443,6 +1468,7 @@ function Dashboard() {
             {/* Top Bar (Draggable) */}
             <div className="z-50 flex items-center justify-between p-2 border-b border-cyan-500/20 bg-black/40 backdrop-blur-md select-none sticky top-0" style={{ WebkitAppRegion: 'drag' }}>
                 <div className="flex items-center gap-4 pl-2">
+                    <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded shadow-[0_0_10px_rgba(34,211,238,0.5)] border border-cyan-500/30" />
                     <h1 className="text-xl font-bold tracking-[0.2em] text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
                         MULTIVAC AI
                     </h1>
