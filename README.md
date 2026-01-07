@@ -23,6 +23,7 @@ It is not just an assistant; it is a universal problem solver, capable of managi
 | **🖱️ Mouse Control** | Click, move, drag, scroll anywhere on screen | PyAutoGUI |
 | **🪟 Window Management** | Launch, close, focus, resize applications | pygetwindow + psutil |
 | **🎮 Application Control** | Voice-controlled app launching and management | subprocess + OS integration |
+| **🎯 AI Gaming Agent** | Autonomous game playing with vision + control (Coming Soon) | Computer Vision + PyAutoGUI |
 | **🧊 Parametric CAD** | Editable 3D model generation from voice prompts | `build123d` → STL |
 | **🖨️ 3D Printing** | Slicing and wireless print job submission | OrcaSlicer + Moonraker/OctoPrint |
 | **🖐️ Gesture Control** | "Minority Report" style window manipulation | MediaPipe Hand Tracking |
@@ -42,6 +43,20 @@ Multivac's interface uses your webcam to detect hand gestures:
 | **✊ Close Fist** | "Select" and grab a UI window to drag it |
 
 > **Tip:** Enable the video feed window to see the hand tracking overlay.
+
+### 🎯 AI Gaming Agent (Coming Soon)
+Multivac will be able to play games autonomously by:
+- **Visual Recognition:** Understanding game state through screen capture
+- **Strategic Decision Making:** Using AI to determine optimal actions
+- **Automated Control:** Executing keyboard/mouse inputs to play
+- **Learning & Adaptation:** Improving performance over time
+
+**Potential Use Cases:**
+- Automated grinding/farming in RPGs
+- Testing game mechanics and balance
+- Accessibility assistance for players with disabilities
+- Speedrun optimization and route finding
+- Tutorial/demonstration creation
 
 ---
 
@@ -81,8 +96,7 @@ graph TB
     CAD -->|STL Stream| THREE
     CAD -->|G-Code| PRINTER
     COMPUTER -->|Keyboard/Mouse| UI
-    ```
-
+```
 
 ---
 
