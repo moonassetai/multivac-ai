@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mic, Layers, Box, Hand, Bot, Check, X, Calendar, Rocket } from 'lucide-react';
 
-const LandingPage = ({ onEnter }) => {
+const LandingPage = ({ onEnter, onOpenDeck }) => {
     const handleLaunch = () => {
         const isElectron = /electron/i.test(navigator.userAgent);
         if (isElectron) {
@@ -33,12 +33,20 @@ const LandingPage = ({ onEnter }) => {
                     </div>
                     <span className="text-2xl font-bold tracking-wider text-white font-['Rajdhani'] uppercase">MULTIVAC AI</span>
                 </div>
-                <button
-                    onClick={onEnter}
-                    className="bg-[#22d3ee] hover:bg-[#06b6d4] text-[#050b14] font-bold font-['Rajdhani'] tracking-wider px-6 py-2 rounded transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] uppercase"
-                >
-                    Launch System
-                </button>
+                <div className="flex items-center gap-6">
+                    <button
+                        onClick={onOpenDeck}
+                        className="text-gray-400 hover:text-white font-['Rajdhani'] font-semibold tracking-wider transition-colors uppercase"
+                    >
+                        Brand Deck
+                    </button>
+                    <button
+                        onClick={onEnter}
+                        className="bg-[#22d3ee] hover:bg-[#06b6d4] text-[#050b14] font-bold font-['Rajdhani'] tracking-wider px-6 py-2 rounded transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] uppercase"
+                    >
+                        Launch System
+                    </button>
+                </div>
             </nav>
 
             {/* Content Container (Standard Width) */}

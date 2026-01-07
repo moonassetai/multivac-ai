@@ -1,5 +1,6 @@
 import React, { useState, Suspense } from 'react';
 import LandingPage from './components/LandingPage';
+import BrandDeck from './components/BrandDeck';
 
 // Lazy load Dashboard so its Electron dependencies don't crash the web version
 const Dashboard = React.lazy(() => import('./Dashboard'));
@@ -15,7 +16,11 @@ function App() {
         );
     }
 
-    return <LandingPage onEnter={() => setView('dashboard')} />;
+    if (view === 'brand') {
+        return <BrandDeck onExit={() => setView('landing')} />;
+    }
+
+    return <LandingPage onEnter={() => setView('dashboard')} onOpenDeck={() => setView('brand')} />;
 }
 
 export default App;
