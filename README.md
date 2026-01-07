@@ -19,6 +19,10 @@ It is not just an assistant; it is a universal problem solver, capable of managi
 | Feature | Description | Technology |
 | :--- | :--- | :--- |
 | **🗣️ Multivac Voice** | Real-time conversation with interrupt handling and authoritative tone | Gemini 2.5 Native Audio |
+| **⌨️ Keyboard Control** | System-wide keyboard automation and text input | PyAutoGUI |
+| **🖱️ Mouse Control** | Click, move, drag, scroll anywhere on screen | PyAutoGUI |
+| **🪟 Window Management** | Launch, close, focus, resize applications | pygetwindow + psutil |
+| **🎮 Application Control** | Voice-controlled app launching and management | subprocess + OS integration |
 | **🧊 Parametric CAD** | Editable 3D model generation from voice prompts | `build123d` → STL |
 | **🖨️ 3D Printing** | Slicing and wireless print job submission | OrcaSlicer + Moonraker/OctoPrint |
 | **🖐️ Gesture Control** | "Minority Report" style window manipulation | MediaPipe Hand Tracking |
@@ -54,11 +58,12 @@ graph TB
     
     subgraph Core ["Multivac Core (Python 3.11)"]
         SERVER[server.py<br/>Socket.IO Server]
-        BRAIN[ada.py<br/>Gemini Live Architecture]
+        BRAIN[brain.py<br/>Gemini Live Architecture]
         WEB[web_agent.py<br/>Autonomous Browser]
         CAD[cad_agent.py<br/>Parametric Engine]
         PRINTER[printer_agent.py<br/>Fabrication Interface]
         KASA[kasa_agent.py<br/>Environment Control]
+        COMPUTER[computer_control_agent.py<br/>System Automation]
         AUTH[authenticator.py<br/>Biometric Gate]
         PM[project_manager.py<br/>Universal Memory]
     end
@@ -69,12 +74,15 @@ graph TB
     BRAIN --> WEB
     BRAIN --> CAD
     BRAIN --> KASA
+    BRAIN --> COMPUTER
     SERVER --> AUTH
     SERVER --> PM
     SERVER --> PRINTER
     CAD -->|STL Stream| THREE
     CAD -->|G-Code| PRINTER
-```
+    COMPUTER -->|Keyboard/Mouse| UI
+    ```
+
 
 ---
 
@@ -143,7 +151,7 @@ npm run build
 
 ## ⚙️ Configuration Setup
 
-### 1. � API Keys (.env)
+### 1.  API Keys (.env)
 Multivac requires access to the Gemini API and ElevenLabs (optional).
 
 1.  Create a file named `.env` in the root folder.
@@ -196,6 +204,21 @@ npm run dev
 ## ▶️ Commands & Interaction
 
 ### 🗣️ Voice Commands
+
+#### Computer Control
+*   "Open Chrome" / "Launch Chrome browser"
+*   "Type hello world"
+*   "Press Enter" / "Hit the Enter key"
+*   "Press Ctrl+C" / "Copy this"
+*   "Click" / "Click here"
+*   "Move mouse to 500, 300"
+*   "Scroll down"
+*   "Close Notepad"
+*   "Minimize this window"
+*   "Show all windows" / "List open windows"
+*   "Focus Chrome" / "Switch to Chrome"
+
+#### System & Projects
 *   "System check."
 *   "Switch project to [Name]."
 *   "Turn on the [Room] light."
@@ -233,12 +256,13 @@ npm run dev
 ```text
 multivac-ai/
 ├── backend/                    # Python server & AI logic
-│   ├── ada.py                  # Main Brain (Gemini Live API)
+│   ├── brain.py                # Main Brain (Gemini Live API)
 │   ├── server.py               # FastAPI + Socket.IO server
 │   ├── cad_agent.py            # CAD generation orchestrator
 │   ├── printer_agent.py        # 3D printer discovery & slicing
 │   ├── web_agent.py            # Playwright browser automation
 │   ├── kasa_agent.py           # Smart home control
+│   ├── computer_control_agent.py  # System-wide keyboard/mouse control
 │   └── tools.py                # Tool definitions
 ├── src/                        # React frontend
 │   ├── App.jsx                 # Main application component

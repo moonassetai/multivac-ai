@@ -54,11 +54,37 @@ Think of this like **assembling a Lego set**.
 ### 🎤 Voice Control
 Once running, Multivac usually defaults to listening for voice input (if a microphone is detected). Speak clearly to interact.
 
+#### Computer Control Commands
+Multivac can now control your computer through voice commands:
+
+**Application Management:**
+- "Open Chrome" - Launches Google Chrome
+- "Open Notepad" - Launches Notepad
+- "Close [app name]" - Closes the specified application
+- "Show all windows" - Lists all open windows
+
+**Keyboard Control:**
+- "Type [your text]" - Types text in the active window
+- "Press Enter" - Presses the Enter key
+- "Press Ctrl+C" - Executes keyboard shortcuts
+- "Press Tab" - Presses special keys
+
+**Mouse Control:**
+- "Click" - Clicks at current mouse position
+- "Move mouse to [x], [y]" - Moves mouse to coordinates
+- "Scroll down" / "Scroll up" - Scrolls the mouse wheel
+
+**Window Management:**
+- "Minimize window" - Minimizes the active window
+- "Focus Chrome" - Brings Chrome to the foreground
+
+> **Safety Note:** Multivac will ask for confirmation before closing applications or performing potentially destructive actions.
+
 ### 🌐 Web Interface
 Open your browser and navigate to:
 [http://localhost:8000](http://localhost:8000)
 
-*(Note: If you have a separate frontend `index.html`, open that file in your browser).*
+*(Note: If you have a separate frontend `index.html`, open that file in your browser.)*
 
 ## Stopping the System
 To shut down Multivac:
@@ -73,3 +99,4 @@ To shut down Multivac:
 -   **Port In Use**: If port 8000 is taken, the server will fail to start. Close other applications using this port.
 -   **Blank Page**: If the page loads but is blank, ensure you have run `npm install` and `npm run build`. 
     -   *Note: I have patched the `src/App.jsx` to work in a regular browser by bypassing the Electron requirement.*
+-   **Computer Control Not Working**: Ensure PyAutoGUI and dependencies are installed: `pip install pyautogui pygetwindow psutil`
