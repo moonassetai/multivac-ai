@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mic, Layers, Box, Hand, Bot, Check, X, Calendar, Rocket } from 'lucide-react';
+import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mic, Layers, Box, Hand, Bot, Check, X, Calendar, Rocket, Clock } from 'lucide-react';
 
 const LandingPage = ({ onEnter, onOpenDeck }) => {
     const handleLaunch = () => {
@@ -230,6 +230,36 @@ const LandingPage = ({ onEnter, onOpenDeck }) => {
                         </div>
 
                         <p className="text-gray-500 mt-12 font-['Rajdhani'] uppercase tracking-widest">Built by OKI Moon | moonassetai</p>
+                        {/* SLIDE 12: THE LAST QUESTION STORY */}
+                        <section className="max-w-4xl mx-auto mb-24 px-6 md:px-0">
+                            <div className="bg-[#0f172a] rounded-2xl border border-white/10 p-8 shadow-2xl relative overflow-hidden group hover:border-[#22d3ee]/30 transition-colors">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#22d3ee]/5 to-transparent pointer-events-none"></div>
+
+                                <div className="relative z-10 text-center mb-8">
+                                    <h2 className="text-3xl font-['Rajdhani'] font-bold text-white mb-2 flex items-center justify-center gap-3">
+                                        <Clock className="text-[#e879f9] animate-pulse" /> The Origin Story
+                                    </h2>
+                                    <p className="text-gray-400 text-sm max-w-lg mx-auto">
+                                        "The Last Question" by Isaac Asimov — The philosophical foundation of Multivac.
+                                    </p>
+                                </div>
+
+                                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-white/10 bg-black">
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src="https://www.youtube.com/embed/BmPcWuv6Mcw?si=oogIfuGrNVrTeTO9"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
+                                        className="absolute inset-0 w-full h-full"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
                 </section>
 
