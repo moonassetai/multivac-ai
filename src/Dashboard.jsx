@@ -1750,6 +1750,7 @@ function Dashboard() {
                         showUniverse={showUniverse}
                         onToggleAssistant={() => setShowAssistantCustomizer(!showAssistantCustomizer)}
                         showAssistantCustomizer={showAssistantCustomizer}
+                        onToggleMarketplace={() => setShowMarketplaceWindow(!showMarketplaceWindow)}
                         activeDragElement={activeDragElement}
                         position={elementPositions.tools}
                         onMouseDown={(e) => handleMouseDown(e, 'tools')}
