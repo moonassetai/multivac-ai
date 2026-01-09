@@ -4,7 +4,10 @@ import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mi
 const LandingPage = ({ onEnter, onOpenDeck, onOpenMarketplace }) => {
     const handleLaunch = () => {
         const isElectron = /electron/i.test(navigator.userAgent);
-        if (isElectron) {
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+        // Allow launch if in Electron OR Localhost (dev mode)
+        if (isElectron || isLocalhost) {
             onEnter();
         } else {
             const downloadLink = document.getElementById('download-link');
