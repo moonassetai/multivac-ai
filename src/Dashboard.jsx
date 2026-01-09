@@ -61,8 +61,10 @@ function Dashboard() {
     ];
 
     // Auth State
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Default to false, wait for Firebase
-    const [isWhitelisted, setIsWhitelisted] = useState(false);
+    // Default to TRUE if in Lite Mode (relative socket) or explicit demo param
+    const isDemo = !SOCKET_URL || window.location.search.includes('demo=true');
+    const [isAuthenticated, setIsAuthenticated] = useState(isDemo);
+    const [isWhitelisted, setIsWhitelisted] = useState(isDemo);
     const [user, setUser] = useState(null); // Track user object
 
     useEffect(() => {
@@ -85,9 +87,10 @@ function Dashboard() {
             } else {
                 console.log("User logged out");
                 setUser(null);
-                setIsAuthenticated(false);
-                setIsWhitelisted(false);
-                setIsLockScreenVisible(true); // Show login screen
+                // In Lite Mode, stay authenticated (bypass)
+                setIsAuthenticated(isDemo);
+                setIsWhitelisted(isDemo);
+                setIsLockScreenVisible(!isDemo); // Show login screen only if NOT lite
             }
         });
         return () => unsubscribe();

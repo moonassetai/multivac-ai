@@ -1,0 +1,52 @@
+INFO:     Started server process [5531]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60246 - "GET /socket.io/?EIO=4&transport=polling&t=l934y70d HTTP/1.1" 200 OK
+Client connected: em_xj1W_t2IKbY6JAAAB
+INFO:     127.0.0.1:60246 - "POST /socket.io/?EIO=4&transport=polling&t=l935li6e&sid=hWM_dPv-vwN-lorbAAAA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60256 - "GET /socket.io/?EIO=4&transport=polling&t=l935n06p&sid=hWM_dPv-vwN-lorbAAAA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60260 - "WebSocket /socket.io/?EIO=4&transport=websocket&sid=hWM_dPv-vwN-lorbAAAA" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60256 - "GET /socket.io/?EIO=4&transport=polling&t=l9361ggz&sid=hWM_dPv-vwN-lorbAAAA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60256 - "GET /socket.io/?EIO=4&transport=polling&t=l936exk5&sid=hWM_dPv-vwN-lorbAAAA HTTP/1.1" 200 OK
+INFO:     connection closed
+Client disconnected: em_xj1W_t2IKbY6JAAAB
+INFO:     127.0.0.1:56016 - "GET /socket.io/?EIO=4&transport=polling&t=lamph3ae HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56020 - "WebSocket /socket.io/?EIO=4&transport=websocket&sid=fJKtAN2nsCzVliOTAAAC" [accepted]
+Client connected: zTmjoW9evfZLymn0AAAD
+INFO:     127.0.0.1:56022 - "GET /socket.io/?EIO=4&transport=polling&t=lamq6cb6&sid=fJKtAN2nsCzVliOTAAAC HTTP/1.1" 200 OK
+INFO:     connection open
+INFO:     127.0.0.1:56016 - "POST /socket.io/?EIO=4&transport=polling&t=lamq4h0h&sid=fJKtAN2nsCzVliOTAAAC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56016 - "GET /socket.io/?EIO=4&transport=polling&t=lamqhqlj&sid=fJKtAN2nsCzVliOTAAAC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56016 - "GET /socket.io/?EIO=4&transport=polling&t=lamqpxxm&sid=fJKtAN2nsCzVliOTAAAC HTTP/1.1" 200 OK
+INFO:     connection closed
+Client disconnected: zTmjoW9evfZLymn0AAAD
+INFO:     127.0.0.1:53144 - "GET /socket.io/?EIO=4&transport=polling&t=lchz9p6y HTTP/1.1" 200 OK
+Client connected: g6X8dL0X3XH3WwZdAAAF
+INFO:     127.0.0.1:53144 - "POST /socket.io/?EIO=4&transport=polling&t=lchztku9&sid=qqDLFZj56zvvWjVXAAAE HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53162 - "GET /socket.io/?EIO=4&transport=polling&t=lchzv0cl&sid=qqDLFZj56zvvWjVXAAAE HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53146 - "WebSocket /socket.io/?EIO=4&transport=websocket&sid=qqDLFZj56zvvWjVXAAAE" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:53162 - "GET /socket.io/?EIO=4&transport=polling&t=lci0i04q&sid=qqDLFZj56zvvWjVXAAAE HTTP/1.1" 200 OK
+INFO:     connection closed
+Client disconnected: g6X8dL0X3XH3WwZdAAAF
+INFO:     127.0.0.1:58734 - "GET /socket.io/?EIO=4&transport=polling&t=ldturjp4 HTTP/1.1" 200 OK
+Client connected: F20ROVqR58BwyVarAAAH
+INFO:     127.0.0.1:58734 - "POST /socket.io/?EIO=4&transport=polling&t=ldtvayzw&sid=Vd31G--I6IDTTXpoAAAG HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58734 - "GET /socket.io/?EIO=4&transport=polling&t=ldtvc0il&sid=Vd31G--I6IDTTXpoAAAG HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58750 - "WebSocket /socket.io/?EIO=4&transport=websocket&sid=Vd31G--I6IDTTXpoAAAG" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58734 - "GET /socket.io/?EIO=4&transport=polling&t=ldtvzc4g&sid=Vd31G--I6IDTTXpoAAAG HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58734 - "POST /socket.io/?EIO=4&transport=polling&t=ldtxcihd&sid=Vd31G--I6IDTTXpoAAAG HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58762 - "GET /socket.io/?EIO=4&transport=polling&t=ldtxhfkx&sid=Vd31G--I6IDTTXpoAAAG HTTP/1.1" 200 OK
+INFO:     connection closed
+Client disconnected: F20ROVqR58BwyVarAAAH
+INFO:     127.0.0.1:38336 - "GET /socket.io/?EIO=4&transport=polling&t=lfr4m86v HTTP/1.1" 200 OK
+Client connected: Cm0Aw_ZIWZyMRXzpAAAJ
+INFO:     127.0.0.1:38336 - "POST /socket.io/?EIO=4&transport=polling&t=lfr56w7l&sid=APfObhAukq4zLVCuAAAI HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38340 - "WebSocket /socket.io/?EIO=4&transport=websocket&sid=APfObhAukq4zLVCuAAAI" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:38354 - "GET /socket.io/?EIO=4&transport=polling&t=lfr58uc2&sid=APfObhAukq4zLVCuAAAI HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38354 - "GET /socket.io/?EIO=4&transport=polling&t=lfr5nx0j&sid=APfObhAukq4zLVCuAAAI HTTP/1.1" 200 OK
+INFO:     connection closed
