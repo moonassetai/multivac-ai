@@ -26,7 +26,15 @@ import MarketplaceWindow from './components/MarketplaceWindow';
 
 import UniversePreview from './components/UniversePreview';
 
-const socket = io('http://localhost:8000');
+// Dynamic Socket URL: Use relative path if on Vercel/Web, else localhost
+const SOCKET_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000'
+    : undefined; // undefined defaults to window.location.host for relative path
+
+const socket = io(SOCKET_URL, {
+    path: '/socket.io', // Ensure standard path
+    transports: ['polling', 'websocket'] // Allow polling for serverless compatibility
+});
 
 // Safe Electron Import (Mock for Browser)
 // Safe Electron Import (Mock for Browser)
