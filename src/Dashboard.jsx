@@ -1808,6 +1808,21 @@ function Dashboard() {
                     </div>
                 )}
 
+                {showMarketplaceWindow && (
+                    <MarketplaceWindow
+                        onClose={() => setShowMarketplaceWindow(false)}
+                        style={{
+                            zIndex: getZIndex('marketplace'),
+                            left: !isModularMode ? '50%' : elementPositions.marketplace?.x || '50%',
+                            top: !isModularMode ? '50%' : elementPositions.marketplace?.y || '50%',
+                            transform: !isModularMode ? 'translate(-50%, -50%)' : 'none',
+                            position: !isModularMode ? 'fixed' : 'absolute'
+                        }}
+                        onMouseDown={(e) => handleMouseDown(e, 'marketplace')}
+                        isModularMode={isModularMode}
+                    />
+                )}
+
                 {/* Tool Confirmation Modal */}
                 <ConfirmationPopup
                     request={confirmationRequest}
