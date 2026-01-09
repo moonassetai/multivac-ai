@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mic, Layers, Box, Hand, Bot, Check, X, Calendar, Rocket, Clock } from 'lucide-react';
 
-const LandingPage = ({ onEnter, onOpenDeck }) => {
+const LandingPage = ({ onEnter, onOpenDeck, onOpenMarketplace }) => {
     const handleLaunch = () => {
         const isElectron = /electron/i.test(navigator.userAgent);
         if (isElectron) {
@@ -39,6 +39,12 @@ const LandingPage = ({ onEnter, onOpenDeck }) => {
                         className="text-gray-400 hover:text-white font-['Rajdhani'] font-semibold tracking-wider transition-colors uppercase"
                     >
                         Brand Deck
+                    </button>
+                    <button
+                        onClick={onOpenMarketplace}
+                        className="text-gray-400 hover:text-[#e879f9] font-['Rajdhani'] font-semibold tracking-wider transition-colors uppercase flex items-center gap-2"
+                    >
+                        AI Tools <span className="text-xs bg-[#e879f9]/20 text-[#e879f9] px-1.5 py-0.5 rounded border border-[#e879f9]/30">NEW</span>
                     </button>
                     <button
                         onClick={onEnter}
