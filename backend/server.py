@@ -1047,7 +1047,21 @@ async def preview_voice(sid, data):
     # For now, just acknowledge the request
     await sio.emit('status', {'msg': f'Voice preview: {voice}'})
 
+# --- AI TOOLS DASHBOARD API ---
+import database
+
+@app.get("/api/tools")
+async def list_tools(category: str = None, sort_by: str = "score", limit: int = 100):
+    return database.get_all_tools(category, sort_by, limit)
+
+@app.get("/api/tools/categories")
+async def list_categories():
+    return database.get_categories()
+
 if __name__ == "__main__":
+    # Ensure DB is ready
+    database.init_db()
+
     uvicorn.run(
         "server:app_socketio", 
         host="127.0.0.1", 

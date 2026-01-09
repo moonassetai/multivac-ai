@@ -4,14 +4,23 @@ import BrandDeck from './components/BrandDeck';
 
 // Lazy load Dashboard so its Electron dependencies don't crash the web version
 const Dashboard = React.lazy(() => import('./Dashboard'));
+const AiToolsDashboard = React.lazy(() => import('./components/AiToolsDashboard'));
 
 function App() {
-    const [view, setView] = useState('landing'); // 'landing' or 'dashboard'
+    const [view, setView] = useState('landing'); // 'landing' or 'dashboard' or 'brand' or 'ai-tools'
 
     if (view === 'dashboard') {
         return (
             <Suspense fallback={<div className="h-screen w-full bg-black text-green-500 flex items-center justify-center font-mono">Initializing Neural Core...</div>}>
                 <Dashboard />
+            </Suspense>
+        );
+    }
+
+    if (view === 'ai-tools') {
+        return (
+            <Suspense fallback={<div className="h-screen w-full bg-black text-[#22d3ee] flex items-center justify-center font-mono">Scanning Repositories...</div>}>
+                <AiToolsDashboard onExit={() => setView('landing')} />
             </Suspense>
         );
     }
@@ -22,7 +31,11 @@ function App() {
 
     return (
         <>
-            <LandingPage onEnter={() => setView('dashboard')} onOpenDeck={() => setView('brand')} />
+            <LandingPage
+                onEnter={() => setView('dashboard')}
+                onOpenDeck={() => setView('brand')}
+                onOpenTools={() => setView('ai-tools')}
+            />
 
             {/* Persistent Background Music */}
             <div className="fixed bottom-0 left-0 w-full z-[100] opacity-80 hover:opacity-100 transition-opacity">

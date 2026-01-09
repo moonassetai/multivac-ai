@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download, Terminal, Zap, Cpu, Globe, Newspaper, Gamepad, Mic, Layers, Box, Hand, Bot, Check, X, Calendar, Rocket, Clock } from 'lucide-react';
 
-const LandingPage = ({ onEnter, onOpenDeck }) => {
+const LandingPage = ({ onEnter, onOpenDeck, onOpenTools }) => {
     const handleLaunch = () => {
         const isElectron = /electron/i.test(navigator.userAgent);
         if (isElectron) {
@@ -34,6 +34,12 @@ const LandingPage = ({ onEnter, onOpenDeck }) => {
                     <span className="text-2xl font-bold tracking-wider text-white font-['Rajdhani'] uppercase">MULTIVAC AI</span>
                 </div>
                 <div className="flex items-center gap-6">
+                    <button
+                        onClick={onOpenTools}
+                        className="text-gray-400 hover:text-white font-['Rajdhani'] font-semibold tracking-wider transition-colors uppercase"
+                    >
+                        AI Tools
+                    </button>
                     <button
                         onClick={onOpenDeck}
                         className="text-gray-400 hover:text-white font-['Rajdhani'] font-semibold tracking-wider transition-colors uppercase"
