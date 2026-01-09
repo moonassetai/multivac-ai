@@ -50,7 +50,7 @@ const LandingPage = ({ onEnter, onOpenDeck, onOpenMarketplace }) => {
                         AI Tools <span className="text-xs bg-[#e879f9]/20 text-[#e879f9] px-1.5 py-0.5 rounded border border-[#e879f9]/30">NEW</span>
                     </button>
                     <button
-                        onClick={onEnter}
+                        onClick={handleLaunch}
                         className="bg-[#22d3ee] hover:bg-[#06b6d4] text-[#050b14] font-bold font-['Rajdhani'] tracking-wider px-6 py-2 rounded transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] uppercase"
                     >
                         Launch System
