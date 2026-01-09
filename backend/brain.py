@@ -189,7 +189,187 @@ iterate_cad_tool = {
     "behavior": "NON_BLOCKING"
 }
 
-tools = [{'google_search': {}}, {"function_declarations": [generate_cad, run_web_agent, create_project_tool, switch_project_tool, list_projects_tool, list_smart_devices_tool, control_light_tool, discover_printers_tool, print_stl_tool, get_print_status_tool, iterate_cad_tool] + tools_list[0]['function_declarations'][1:]}]
+# ========== COMPUTER CONTROL TOOLS ==========
+
+type_text_tool = {
+    "name": "type_text",
+    "description": "Types text in the currently active window using the keyboard.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "text": {"type": "STRING", "description": "The text to type."}
+        },
+        "required": ["text"]
+    }
+}
+
+press_key_tool = {
+    "name": "press_key",
+    "description": "Presses a keyboard key or key combination. Supports single keys (e.g., 'enter', 'tab', 'escape') and combinations (e.g., 'ctrl+c', 'alt+tab', 'win+d').",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "key": {"type": "STRING", "description": "The key or key combination to press (e.g., 'enter', 'ctrl+c', 'alt+f4')."}
+        },
+        "required": ["key"]
+    }
+}
+
+click_mouse_tool = {
+    "name": "click_mouse",
+    "description": "Clicks the mouse button at the current position or specified coordinates.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "button": {"type": "STRING", "description": "Mouse button to click: 'left', 'right', or 'middle'. Default is 'left'."},
+            "x": {"type": "INTEGER", "description": "Optional X coordinate. If not provided, clicks at current position."},
+            "y": {"type": "INTEGER", "description": "Optional Y coordinate. If not provided, clicks at current position."}
+        }
+    }
+}
+
+double_click_tool = {
+    "name": "double_click",
+    "description": "Double clicks the mouse at the current position or specified coordinates.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "x": {"type": "INTEGER", "description": "Optional X coordinate."},
+            "y": {"type": "INTEGER", "description": "Optional Y coordinate."}
+        }
+    }
+}
+
+move_mouse_tool = {
+    "name": "move_mouse",
+    "description": "Moves the mouse cursor to specified screen coordinates.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "x": {"type": "INTEGER", "description": "X coordinate on the screen."},
+            "y": {"type": "INTEGER", "description": "Y coordinate on the screen."}
+        },
+        "required": ["x", "y"]
+    }
+}
+
+scroll_tool = {
+    "name": "scroll",
+    "description": "Scrolls the mouse wheel up or down.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "direction": {"type": "STRING", "description": "Scroll direction: 'up' or 'down'."},
+            "clicks": {"type": "INTEGER", "description": "Number of scroll clicks. Default is 3."}
+        },
+        "required": ["direction"]
+    }
+}
+
+open_app_tool = {
+    "name": "open_app",
+    "description": "Opens/launches an application by name. Supports common applications like Chrome, Notepad, Calculator, File Explorer, VS Code, etc.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "app_name": {"type": "STRING", "description": "Name of the application to open (e.g., 'chrome', 'notepad', 'calculator')."}
+        },
+        "required": ["app_name"]
+    }
+}
+
+close_app_tool = {
+    "name": "close_app",
+    "description": "Closes an application by name. This will terminate all instances of the application.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "app_name": {"type": "STRING", "description": "Name of the application to close (e.g., 'chrome', 'notepad')."}
+        },
+        "required": ["app_name"]
+    }
+}
+
+list_windows_tool = {
+    "name": "list_windows",
+    "description": "Lists all currently open windows on the system.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {}
+    }
+}
+
+focus_window_tool = {
+    "name": "focus_window",
+    "description": "Brings a window to the foreground by its title. Supports partial title matching.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "window_title": {"type": "STRING", "description": "The title or partial title of the window to focus."}
+        },
+        "required": ["window_title"]
+    }
+}
+
+minimize_window_tool = {
+    "name": "minimize_window",
+    "description": "Minimizes a window by its title.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "window_title": {"type": "STRING", "description": "The title or partial title of the window to minimize."}
+        },
+        "required": ["window_title"]
+    }
+}
+
+maximize_window_tool = {
+    "name": "maximize_window",
+    "description": "Maximizes a window by its title.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "window_title": {"type": "STRING", "description": "The title or partial title of the window to maximize."}
+        },
+        "required": ["window_title"]
+    }
+}
+
+# ========== NITROGEN AI GAMING TOOLS ==========
+
+start_nitrogen_tool = {
+    "name": "start_nitrogen",
+    "description": "Start AI-powered game playing using NitroGen vision-to-action model. The AI will watch the game screen and control it autonomously using a virtual gamepad.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {
+            "game_process": {"type": "STRING", "description": "Name of the game executable (e.g., 'Minecraft.exe', 'isaac-ng.exe')."},
+            "duration": {"type": "INTEGER", "description": "Optional duration in seconds to play. If not specified, plays until stopped."},
+            "controller_type": {"type": "STRING", "description": "Controller type: 'xbox' or 'ps4'. Default is 'xbox'."}
+        },
+        "required": ["game_process"]
+    }
+}
+
+stop_nitrogen_tool = {
+    "name": "stop_nitrogen",
+    "description": "Stop the AI from playing the current game.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {}
+    }
+}
+
+nitrogen_status_tool = {
+    "name": "nitrogen_status",
+    "description": "Get the current status of the NitroGen AI gaming agent.",
+    "parameters": {
+        "type": "OBJECT",
+        "properties": {}
+    }
+}
+
+tools = [{'google_search': {}}, {"function_declarations": [generate_cad, run_web_agent, create_project_tool, switch_project_tool, list_projects_tool, list_smart_devices_tool, control_light_tool, discover_printers_tool, print_stl_tool, get_print_status_tool, iterate_cad_tool, type_text_tool, press_key_tool, click_mouse_tool, double_click_tool, move_mouse_tool, scroll_tool, open_app_tool, close_app_tool, list_windows_tool, focus_window_tool, minimize_window_tool, maximize_window_tool, start_nitrogen_tool, stop_nitrogen_tool, nitrogen_status_tool] + tools_list[0]['function_declarations'][1:]}]
 
 # --- CONFIG UPDATE: Enabled Transcription ---
 
@@ -460,6 +640,15 @@ from web_agent import WebAgent
 from project_manager import ProjectManager
 # from kasa_agent import KasaAgent  # Temporarily disabled
 from printer_agent import PrinterAgent
+from computer_control_agent import ComputerControlAgent
+
+# NitroGen agent (optional - only if installed)
+try:
+    from nitrogen_agent import NitrogenAgent
+    NITROGEN_AVAILABLE = True
+except ImportError:
+    NITROGEN_AVAILABLE = False
+    print("[BRAIN] NitroGen not available - AI gaming features disabled")
 
 class AudioLoop:
     def __init__(self, video_mode=DEFAULT_MODE, on_audio_data=None, on_video_frame=None, on_cad_data=None, on_web_data=None, on_transcription=None, on_tool_confirmation=None, on_cad_status=None, on_cad_thought=None, on_project_update=None, on_device_update=None, on_error=None, input_device_index=None, input_device_name=None, output_device_index=None, kasa_agent=None):
@@ -509,6 +698,18 @@ class AudioLoop:
         # self.kasa_agent = KasaAgent()  # Temporarily disabled
         self.kasa_agent = None  # Placeholder to satisfy tool requirement. I will view lines 800+ first.
         self.printer_agent = PrinterAgent()
+        self.computer_control_agent = ComputerControlAgent()
+        
+        # Initialize NitroGen agent if available
+        if NITROGEN_AVAILABLE:
+            try:
+                self.nitrogen_agent = NitrogenAgent()
+                print("[BRAIN] NitroGen agent initialized successfully")
+            except Exception as e:
+                print(f"[BRAIN] Failed to initialize NitroGen: {e}")
+                self.nitrogen_agent = None
+        else:
+            self.nitrogen_agent = None
 
         self.send_text_task = None
         self.stop_event = asyncio.Event()
@@ -1122,7 +1323,7 @@ class AudioLoop:
                         print("The tool was called")
                         function_responses = []
                         for fc in response.tool_call.function_calls:
-                            if fc.name in ["generate_cad", "run_web_agent", "write_file", "read_directory", "read_file", "create_project", "switch_project", "list_projects", "list_smart_devices", "control_light", "discover_printers", "print_stl", "get_print_status", "iterate_cad"]:
+                            if fc.name in ["generate_cad", "run_web_agent", "write_file", "read_directory", "read_file", "create_project", "switch_project", "list_projects", "list_smart_devices", "control_light", "discover_printers", "print_stl", "get_print_status", "iterate_cad", "type_text", "press_key", "click_mouse", "double_click", "move_mouse", "scroll", "open_app", "close_app", "list_windows", "focus_window", "minimize_window", "maximize_window", "start_nitrogen", "stop_nitrogen", "nitrogen_status"]:
                                 prompt = fc.args.get("prompt", "") # Prompt is not present for all tools
                                 
                                 # Check Permissions (Default to True if not set)
@@ -1513,6 +1714,202 @@ class AudioLoop:
                                         id=fc.id, name=fc.name, response={"result": result_str}
                                     )
                                     function_responses.append(function_response)
+                                
+                                # ========== COMPUTER CONTROL TOOLS ==========
+                                
+                                elif fc.name == "type_text":
+                                    text = fc.args["text"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'type_text' Text='{text}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("type", {"text": text})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "press_key":
+                                    key = fc.args["key"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'press_key' Key='{key}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("press_key", {"key": key})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "click_mouse":
+                                    button = fc.args.get("button", "left")
+                                    x = fc.args.get("x")
+                                    y = fc.args.get("y")
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'click_mouse' Button='{button}' X={x} Y={y}")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("click", {"button": button, "x": x, "y": y})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "double_click":
+                                    x = fc.args.get("x")
+                                    y = fc.args.get("y")
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'double_click' X={x} Y={y}")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("double_click", {"x": x, "y": y})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "move_mouse":
+                                    x = fc.args["x"]
+                                    y = fc.args["y"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'move_mouse' X={x} Y={y}")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("move_mouse", {"x": x, "y": y})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "scroll":
+                                    direction = fc.args["direction"]
+                                    clicks = fc.args.get("clicks", 3)
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'scroll' Direction='{direction}' Clicks={clicks}")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("scroll", {"direction": direction, "clicks": clicks})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "open_app":
+                                    app_name = fc.args["app_name"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'open_app' App='{app_name}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("open_app", {"app_name": app_name})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "close_app":
+                                    app_name = fc.args["app_name"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'close_app' App='{app_name}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("close_app", {"app_name": app_name})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "list_windows":
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'list_windows'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("list_windows", {})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "focus_window":
+                                    window_title = fc.args["window_title"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'focus_window' Title='{window_title}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("focus_window", {"window_title": window_title})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "minimize_window":
+                                    window_title = fc.args["window_title"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'minimize_window' Title='{window_title}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("minimize_window", {"window_title": window_title})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "maximize_window":
+                                    window_title = fc.args["window_title"]
+                                    print(f"[COMPUTER_CONTROL] [TOOL] Tool Call: 'maximize_window' Title='{window_title}'")
+                                    
+                                    success, msg = await self.computer_control_agent.execute_action("maximize_window", {"window_title": window_title})
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                # ========== NITROGEN AI GAMING TOOLS ==========
+                                
+                                elif fc.name == "start_nitrogen":
+                                    game_process = fc.args["game_process"]
+                                    duration = fc.args.get("duration")
+                                    controller_type = fc.args.get("controller_type", "xbox")
+                                    print(f"[NITROGEN] [TOOL] Tool Call: 'start_nitrogen' Game='{game_process}' Duration={duration}")
+                                    
+                                    if self.nitrogen_agent is None:
+                                        msg = "NitroGen not available. Install with: pip install -e ./NitroGen"
+                                        success = False
+                                    else:
+                                        success, msg = await self.nitrogen_agent.play_game(
+                                            game_process, 
+                                            duration, 
+                                            controller_type
+                                        )
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "stop_nitrogen":
+                                    print(f"[NITROGEN] [TOOL] Tool Call: 'stop_nitrogen'")
+                                    
+                                    if self.nitrogen_agent is None:
+                                        msg = "NitroGen not available"
+                                        success = False
+                                    else:
+                                        success, msg = await self.nitrogen_agent.stop_playing()
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
+                                elif fc.name == "nitrogen_status":
+                                    print(f"[NITROGEN] [TOOL] Tool Call: 'nitrogen_status'")
+                                    
+                                    if self.nitrogen_agent is None:
+                                        msg = "NitroGen not available"
+                                    else:
+                                        status = self.nitrogen_agent.get_status()
+                                        msg = f"NitroGen Status:\n"
+                                        msg += f"Server Running: {status['server_running']}\n"
+                                        msg += f"Currently Playing: {status['is_playing']}\n"
+                                        if status['game']:
+                                            msg += f"Game: {status['game']}\n"
+                                        msg += f"Model: {status['model_path']}\n"
+                                        msg += f"Port: {status['server_port']}"
+                                    
+                                    function_response = types.FunctionResponse(
+                                        id=fc.id, name=fc.name, response={"result": msg}
+                                    )
+                                    function_responses.append(function_response)
+                                
                         if function_responses:
                             await self.session.send_tool_response(function_responses=function_responses)
                 

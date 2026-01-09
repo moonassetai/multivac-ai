@@ -15,16 +15,23 @@ google-genai
 numpy>=1.24.0,<2.0.0
 opencv-python-headless>=4.8.0
 pyaudio; platform_system != "Linux"
+mss  # Screen capture
+Pillow  # Image processing
+mediapipe  # Face and Hand tracking
 
 # Computer Control (NEW)
 pyautogui>=0.9.54
 pygetwindow>=0.0.9; platform_system == "Windows"
 psutil>=5.9.0
 
-# Smart Home
+# Smart Home & Printing
 python-kasa
+zeroconf
+aiohttp
+
+# Web Agent
+playwright
 
 # Utilities
 python-dotenv
-
 requests

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mic, MicOff, Settings, Power, Video, VideoOff, Hand, Lightbulb, Printer, Globe, Box, Sparkles } from 'lucide-react';
+import { Mic, MicOff, Settings, Power, Video, VideoOff, Hand, Lightbulb, Printer, Globe, Box, Sparkles, Activity } from 'lucide-react';
 
 const ToolsModule = ({
     isConnected,
@@ -21,8 +21,11 @@ const ToolsModule = ({
     showCadWindow,
     onToggleBrowser,
     showBrowserWindow,
+    onToggleUniverse,
+    showUniverse,
     onToggleAssistant,
     showAssistantCustomizer,
+    onToggleMarketplace,
     activeDragElement,
 
     position,
@@ -144,6 +147,17 @@ const ToolsModule = ({
                     <Globe size={24} />
                 </button>
 
+                {/* Universe Simulation Toggle */}
+                <button
+                    onClick={onToggleUniverse}
+                    className={`p-3 rounded-full border-2 transition-all duration-300 ${showUniverse
+                        ? 'border-indigo-400 bg-indigo-400/10 text-indigo-400 hover:bg-indigo-400/20 shadow-[0_0_15px_rgba(129,140,248,0.3)]'
+                        : 'border-cyan-900 text-cyan-700 hover:border-indigo-500 hover:text-indigo-500'
+                        } `}
+                >
+                    <Activity size={24} />
+                </button>
+
                 {/* Assistant Customizer Toggle */}
                 <button
                     onClick={onToggleAssistant}
@@ -153,6 +167,13 @@ const ToolsModule = ({
                         } `}
                 >
                     <Sparkles size={24} />
+                </button>
+                {/* Marketplace Toggle */}
+                <button
+                    onClick={onToggleMarketplace}
+                    className="p-3 rounded-full border-2 transition-all duration-300 border-indigo-500 bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.3)]"
+                >
+                    <ShoppingBag size={24} />
                 </button>
             </div>
         </div>

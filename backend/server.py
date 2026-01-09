@@ -151,7 +151,8 @@ async def startup_event():
         print(f"[SERVER DEBUG] Error checking loop: {e}")
 
     print("[SERVER] Startup: Initializing Kasa Agent...")
-    # await kasa_agent.initialize()  # Temporarily disabled
+    # await kasa_agent.initialize()  # Temporarily disabled - bypassing to fix startup hang
+    print("[SERVER] Kasa Agent initialization skipped (smart home features disabled)")
 
 @app.get("/status")
 async def status():

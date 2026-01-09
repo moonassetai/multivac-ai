@@ -20,8 +20,11 @@ import KasaWindow from './components/KasaWindow';
 import PrinterWindow from './components/PrinterWindow';
 import SettingsWindow from './components/SettingsWindow';
 import AssistantCustomizer from './components/AssistantCustomizer';
+import MarketplaceWindow from './components/MarketplaceWindow';
 
 
+
+import UniversePreview from './components/UniversePreview';
 
 const socket = io('http://localhost:8000');
 
@@ -62,8 +65,9 @@ function Dashboard() {
                 setUser(currentUser);
                 setIsAuthenticated(true);
 
-                // Check Whitelist (Case Insensitive)
-                if (WHITELIST.includes(currentUser.email.toLowerCase())) {
+                // Check Whitelist (Case Insensitive) OR Localhost Bypass
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                if (WHITELIST.includes(currentUser.email.toLowerCase()) || isLocal) {
                     setIsWhitelisted(true);
                 } else {
                     setIsWhitelisted(false);
@@ -105,7 +109,10 @@ function Dashboard() {
     const [showKasaWindow, setShowKasaWindow] = useState(false);
     const [showPrinterWindow, setShowPrinterWindow] = useState(false);
     const [showCadWindow, setShowCadWindow] = useState(false);
+
     const [showBrowserWindow, setShowBrowserWindow] = useState(false);
+    const [showUniverse, setShowUniverse] = useState(false);
+    const [showMarketplaceWindow, setShowMarketplaceWindow] = useState(false);
 
     // Printing workflow status (for top toolbar display)
     const [slicingStatus, setSlicingStatus] = useState({ active: false, percent: 0, message: '' });
@@ -147,6 +154,7 @@ function Dashboard() {
         browser: { x: window.innerWidth / 2 - 300, y: window.innerHeight / 2 },
         kasa: { x: window.innerWidth / 2 + 350, y: window.innerHeight / 2 - 100 },
         printer: { x: window.innerWidth / 2 - 350, y: window.innerHeight / 2 - 100 },
+        marketplace: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
         tools: { x: window.innerWidth / 2, y: window.innerHeight - 100 } // Fixed bottom OFFSET
     });
 
@@ -158,13 +166,14 @@ function Dashboard() {
         browser: { w: 550, h: 380 },
         video: { w: 320, h: 180 },
         kasa: { w: 300, h: 380 }, // Approx
-        printer: { w: 380, h: 380 } // Approx
+        printer: { w: 380, h: 380 }, // Approx
+        marketplace: { w: 900, h: 600 }
     });
     const [activeDragElement, setActiveDragElement] = useState(null);
 
     // Z-Index Stacking Order (last element = highest z-index)
     const [zIndexOrder, setZIndexOrder] = useState([
-        'visualizer', 'chat', 'tools', 'video', 'cad', 'browser', 'kasa', 'printer'
+        'visualizer', 'chat', 'tools', 'video', 'cad', 'browser', 'kasa', 'printer', 'marketplace'
     ]);
 
     // Hand Control State
@@ -1401,6 +1410,10 @@ function Dashboard() {
         setShowPrinterWindow(!showPrinterWindow);
     };
 
+    const toggleUniverse = () => {
+        setShowUniverse(!showUniverse);
+    };
+
 
 
     return (
@@ -1732,6 +1745,9 @@ function Dashboard() {
                         showCadWindow={showCadWindow}
                         onToggleBrowser={() => setShowBrowserWindow(!showBrowserWindow)}
                         showBrowserWindow={showBrowserWindow}
+
+                        onToggleUniverse={toggleUniverse}
+                        showUniverse={showUniverse}
                         onToggleAssistant={() => setShowAssistantCustomizer(!showAssistantCustomizer)}
                         showAssistantCustomizer={showAssistantCustomizer}
                         activeDragElement={activeDragElement}
@@ -1775,6 +1791,20 @@ function Dashboard() {
                         socket={socket}
                         onClose={() => setShowAssistantCustomizer(false)}
                     />
+                )}
+
+                {/* Universe Preview Overlay */}
+                {showUniverse && (
+                    <div className="absolute inset-0 z-[60]">
+                        <UniversePreview />
+                        {/* Close Button for Universe */}
+                        <button
+                            onClick={() => setShowUniverse(false)}
+                            className="absolute top-4 right-4 z-[70] p-2 bg-black/50 hover:bg-red-500/20 text-white/50 hover:text-red-400 rounded-full border border-white/10 transition-colors"
+                        >
+                            <X size={24} />
+                        </button>
+                    </div>
                 )}
 
                 {/* Tool Confirmation Modal */}
