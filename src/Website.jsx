@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LandingPage from './components/LandingPage';
-import MarketplaceWindow from './components/MarketplaceWindow';
+import DiscoveryDashboard from './components/DiscoveryDashboard';
 import BrandDeck from './components/BrandDeck';
 
 /**
@@ -35,21 +35,7 @@ const Website = ({ onLaunch }) => {
                     ← Back to Home
                 </button>
 
-                <MarketplaceWindow
-                    onClose={() => setPage('landing')}
-                    isModularMode={false}
-                    style={{
-                        position: 'relative',
-                        transform: 'none',
-                        top: 'auto',
-                        left: 'auto',
-                        width: '1200px',
-                        height: '800px',
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        zIndex: 10
-                    }}
-                />
+                <DiscoveryDashboard onClose={() => setPage('landing')} />
             </div>
         );
     }

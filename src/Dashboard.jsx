@@ -20,7 +20,7 @@ import KasaWindow from './components/KasaWindow';
 import PrinterWindow from './components/PrinterWindow';
 import SettingsWindow from './components/SettingsWindow';
 import AssistantCustomizer from './components/AssistantCustomizer';
-import MarketplaceWindow from './components/MarketplaceWindow';
+import DiscoveryDashboard from './components/DiscoveryDashboard';
 
 
 
@@ -154,7 +154,7 @@ function Dashboard() {
         browser: { x: window.innerWidth / 2 - 300, y: window.innerHeight / 2 },
         kasa: { x: window.innerWidth / 2 + 350, y: window.innerHeight / 2 - 100 },
         printer: { x: window.innerWidth / 2 - 350, y: window.innerHeight / 2 - 100 },
-        marketplace: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
+        marketplace: { x: window.innerWidth / 2, y: window.innerHeight / 2 }, // Reused position key for Discovery
         tools: { x: window.innerWidth / 2, y: window.innerHeight - 100 } // Fixed bottom OFFSET
     });
 
@@ -167,7 +167,7 @@ function Dashboard() {
         video: { w: 320, h: 180 },
         kasa: { w: 300, h: 380 }, // Approx
         printer: { w: 380, h: 380 }, // Approx
-        marketplace: { w: 900, h: 600 }
+        marketplace: { w: 1200, h: 800 } // Discovery Size
     });
     const [activeDragElement, setActiveDragElement] = useState(null);
 
@@ -1809,17 +1809,19 @@ function Dashboard() {
                 )}
 
                 {showMarketplaceWindow && (
-                    <MarketplaceWindow
+                    <DiscoveryDashboard
                         onClose={() => setShowMarketplaceWindow(false)}
+                        isModularMode={isModularMode}
                         style={{
                             zIndex: getZIndex('marketplace'),
                             left: !isModularMode ? '50%' : elementPositions.marketplace?.x || '50%',
                             top: !isModularMode ? '50%' : elementPositions.marketplace?.y || '50%',
-                            transform: !isModularMode ? 'translate(-50%, -50%)' : 'none',
-                            position: !isModularMode ? 'fixed' : 'absolute'
+                            transform: !isModularMode ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)', // Always center anchor for consistency
+                            position: !isModularMode ? 'fixed' : 'absolute',
+                            width: elementSizes.marketplace.w,
+                            height: elementSizes.marketplace.h
                         }}
                         onMouseDown={(e) => handleMouseDown(e, 'marketplace')}
-                        isModularMode={isModularMode}
                     />
                 )}
 
