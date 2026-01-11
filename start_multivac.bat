@@ -21,7 +21,7 @@ IF %ERRORLEVEL% EQU 0 (
     )
 
     echo [INFO] Verifying key dependencies...
-    call conda run -n multivac-core pip install -r requirements.txt --prefer-binary >nul 2>&1
+    call conda run -n multivac-core pip install -r requirements_local.txt --prefer-binary >nul 2>&1
     
     echo.
     echo.
@@ -78,7 +78,7 @@ echo [INFO] Upgrading pip...
 python -m pip install --upgrade pip --quiet
 
 echo [INFO] Installing requirements...
-pip install -r requirements.txt --prefer-binary
+pip install -r requirements_local.txt --prefer-binary
 
 echo [INFO] Checking Playwright...
 playwright install chromium --quiet

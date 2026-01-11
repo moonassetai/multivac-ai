@@ -26,7 +26,15 @@ import DiscoveryDashboard from './components/DiscoveryDashboard';
 
 import UniversePreview from './components/UniversePreview';
 
-const socket = io('http://localhost:8000');
+// Dynamic Socket URL: Use relative path if on Vercel/Web, else localhost
+const SOCKET_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000'
+    : undefined; // undefined defaults to window.location.host for relative path
+
+const socket = io(SOCKET_URL, {
+    path: '/socket.io', // Ensure standard path
+    transports: ['polling', 'websocket'] // Allow polling for serverless compatibility
+});
 
 // Safe Electron Import (Mock for Browser)
 // Safe Electron Import (Mock for Browser)
@@ -53,8 +61,10 @@ function Dashboard() {
     ];
 
     // Auth State
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Default to false, wait for Firebase
-    const [isWhitelisted, setIsWhitelisted] = useState(false);
+    // Default to TRUE if in Lite Mode (relative socket) or explicit demo param
+    const isDemo = !SOCKET_URL || window.location.search.includes('demo=true');
+    const [isAuthenticated, setIsAuthenticated] = useState(isDemo);
+    const [isWhitelisted, setIsWhitelisted] = useState(isDemo);
     const [user, setUser] = useState(null); // Track user object
 
     useEffect(() => {
@@ -77,9 +87,10 @@ function Dashboard() {
             } else {
                 console.log("User logged out");
                 setUser(null);
-                setIsAuthenticated(false);
-                setIsWhitelisted(false);
-                setIsLockScreenVisible(true); // Show login screen
+                // In Lite Mode, stay authenticated (bypass)
+                setIsAuthenticated(isDemo);
+                setIsWhitelisted(isDemo);
+                setIsLockScreenVisible(!isDemo); // Show login screen only if NOT lite
             }
         });
         return () => unsubscribe();

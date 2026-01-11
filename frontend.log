@@ -1,0 +1,101 @@
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.21  ready in 261 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.0.2:5173/
+8:02:28 AM [vite] warning: Duplicate key "name" in object literal
+72 |      voice: 'Kore',
+73 |      personality: 'default',
+74 |      name: 'Multivac',
+   |      ^
+75 |      voice: 'Kore',
+76 |      personality: 'default',
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "voice" in object literal
+73 |      personality: 'default',
+74 |      name: 'Multivac',
+75 |      voice: 'Kore',
+   |      ^
+76 |      personality: 'default',
+77 |      customPrompt: '',
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "personality" in object literal
+74 |      name: 'Multivac',
+75 |      voice: 'Kore',
+76 |      personality: 'default',
+   |      ^
+77 |      customPrompt: '',
+78 |      avatarUrl: ''
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "name" in object literal
+93 |          voice: data.voice || 'Kore',
+94 |          personality: data.personality || 'default',
+95 |          name: data.name || 'Multivac',
+   |          ^
+96 |          voice: data.voice || 'Kore',
+97 |          personality: data.personality || 'default',
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "voice" in object literal
+94 |          personality: data.personality || 'default',
+95 |          name: data.name || 'Multivac',
+96 |          voice: data.voice || 'Kore',
+   |          ^
+97 |          personality: data.personality || 'default',
+98 |          customPrompt: data.custom_personality_prompt || '',
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "personality" in object literal
+95 |          name: data.name || 'Multivac',
+96 |          voice: data.voice || 'Kore',
+97 |          personality: data.personality || 'default',
+   |          ^
+98 |          customPrompt: data.custom_personality_prompt || '',
+99 |          avatarUrl: data.avatar_url || ''
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "name" in object literal
+158|        voice: config.voice,
+159|        personality: config.personality,
+160|        name: config.name,
+   |        ^
+161|        voice: config.voice,
+162|        personality: config.personality,
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "voice" in object literal
+159|        personality: config.personality,
+160|        name: config.name,
+161|        voice: config.voice,
+   |        ^
+162|        personality: config.personality,
+163|        custom_personality_prompt: config.customPrompt,
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:02:28 AM [vite] warning: Duplicate key "personality" in object literal
+160|        name: config.name,
+161|        voice: config.voice,
+162|        personality: config.personality,
+   |        ^
+163|        custom_personality_prompt: config.customPrompt,
+164|        avatar_url: config.avatarUrl
+
+  Plugin: vite:esbuild
+  File: /app/src/components/AssistantCustomizer.jsx
+8:03:17 AM [vite] hmr update /src/components/ToolsModule.jsx, /src/index.css
+8:04:40 AM [vite] hmr update /src/Dashboard.jsx, /src/index.css
+8:04:46 AM [vite] hmr update /src/Dashboard.jsx, /src/index.css
+8:05:52 AM [vite] hmr update /src/Dashboard.jsx, /src/index.css
+8:07:33 AM [vite] hmr update /src/Dashboard.jsx, /src/index.css
