@@ -68,9 +68,9 @@
     "url": "https://github.com/ollama/ollama",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 160485,
-    "forks": 14266,
-    "updated_at": "2026-01-25T01:48:15Z",
+    "stars": 160586,
+    "forks": 14283,
+    "updated_at": "2026-01-26T01:50:12Z",
     "source": "github"
   },
   {
@@ -79,9 +79,9 @@
     "url": "https://github.com/huggingface/transformers",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 155661,
-    "forks": 31849,
-    "updated_at": "2026-01-25T00:31:23Z",
+    "stars": 155703,
+    "forks": 31853,
+    "updated_at": "2026-01-26T01:50:14Z",
     "source": "github"
   },
   {
@@ -90,9 +90,9 @@
     "url": "https://github.com/langflow-ai/langflow",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 144190,
-    "forks": 8354,
-    "updated_at": "2026-01-25T01:32:53Z",
+    "stars": 144208,
+    "forks": 8355,
+    "updated_at": "2026-01-26T01:40:35Z",
     "source": "github"
   },
   {
@@ -101,9 +101,9 @@
     "url": "https://github.com/f/awesome-chatgpt-prompts",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 143472,
-    "forks": 19017,
-    "updated_at": "2026-01-25T01:39:00Z",
+    "stars": 143577,
+    "forks": 19024,
+    "updated_at": "2026-01-26T01:55:44Z",
     "source": "github"
   },
   {
@@ -112,9 +112,9 @@
     "url": "https://github.com/langgenius/dify",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 127104,
-    "forks": 19811,
-    "updated_at": "2026-01-25T01:38:04Z",
+    "stars": 127182,
+    "forks": 19831,
+    "updated_at": "2026-01-26T02:05:27Z",
     "source": "github"
   },
   {
@@ -123,9 +123,9 @@
     "url": "https://github.com/langchain-ai/langchain",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 125036,
-    "forks": 20575,
-    "updated_at": "2026-01-25T01:37:05Z",
+    "stars": 125097,
+    "forks": 20581,
+    "updated_at": "2026-01-26T02:05:42Z",
     "source": "github"
   },
   {
@@ -134,9 +134,9 @@
     "url": "https://github.com/open-webui/open-webui",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 121782,
-    "forks": 17171,
-    "updated_at": "2026-01-25T01:40:55Z",
+    "stars": 121869,
+    "forks": 17181,
+    "updated_at": "2026-01-26T02:04:43Z",
     "source": "github"
   },
   {
@@ -145,9 +145,9 @@
     "url": "https://github.com/microsoft/generative-ai-for-beginners",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 105601,
-    "forks": 56526,
-    "updated_at": "2026-01-25T01:08:57Z",
+    "stars": 105638,
+    "forks": 56547,
+    "updated_at": "2026-01-26T01:59:31Z",
     "source": "github"
   },
   {
@@ -156,9 +156,9 @@
     "url": "https://github.com/rasbt/LLMs-from-scratch",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 83755,
-    "forks": 12621,
-    "updated_at": "2026-01-25T02:03:32Z",
+    "stars": 83796,
+    "forks": 12634,
+    "updated_at": "2026-01-26T01:56:17Z",
     "source": "github"
   },
   {
@@ -167,9 +167,9 @@
     "url": "https://github.com/firecrawl/firecrawl",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 77160,
-    "forks": 5821,
-    "updated_at": "2026-01-25T01:59:24Z",
+    "stars": 77338,
+    "forks": 5826,
+    "updated_at": "2026-01-26T02:00:48Z",
     "source": "github"
   },
   {
@@ -178,9 +178,9 @@
     "url": "https://github.com/browser-use/browser-use",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 76810,
-    "forks": 9131,
-    "updated_at": "2026-01-25T02:05:59Z",
+    "stars": 77040,
+    "forks": 9150,
+    "updated_at": "2026-01-26T01:57:27Z",
     "source": "github"
   },
   {
@@ -189,9 +189,9 @@
     "url": "https://github.com/mlabonne/llm-course",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 73850,
-    "forks": 8489,
-    "updated_at": "2026-01-25T01:55:31Z",
+    "stars": 73904,
+    "forks": 8499,
+    "updated_at": "2026-01-26T01:58:30Z",
     "source": "github"
   },
   {
@@ -200,9 +200,9 @@
     "url": "https://github.com/infiniflow/ragflow",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 72082,
-    "forks": 7947,
-    "updated_at": "2026-01-25T01:41:47Z",
+    "stars": 72121,
+    "forks": 7952,
+    "updated_at": "2026-01-26T02:00:22Z",
     "source": "github"
   },
   {
@@ -211,9 +211,9 @@
     "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 69487,
-    "forks": 7419,
-    "updated_at": "2026-01-25T01:32:50Z",
+    "stars": 69520,
+    "forks": 7425,
+    "updated_at": "2026-01-26T01:15:38Z",
     "source": "github"
   },
   {
@@ -222,9 +222,9 @@
     "url": "https://github.com/vllm-project/vllm",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 68472,
-    "forks": 12882,
-    "updated_at": "2026-01-25T01:51:57Z",
+    "stars": 68560,
+    "forks": 12904,
+    "updated_at": "2026-01-26T01:39:49Z",
     "source": "github"
   },
   {
@@ -233,9 +233,9 @@
     "url": "https://github.com/OpenHands/OpenHands",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 67045,
-    "forks": 8341,
-    "updated_at": "2026-01-25T01:51:10Z",
+    "stars": 67091,
+    "forks": 8347,
+    "updated_at": "2026-01-26T01:59:13Z",
     "source": "github"
   },
   {
@@ -244,9 +244,9 @@
     "url": "https://github.com/hiyouga/LlamaFactory",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 66394,
-    "forks": 8077,
-    "updated_at": "2026-01-25T01:41:42Z",
+    "stars": 66449,
+    "forks": 8082,
+    "updated_at": "2026-01-26T01:54:33Z",
     "source": "github"
   },
   {
@@ -255,9 +255,9 @@
     "url": "https://github.com/FoundationAgents/MetaGPT",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 63381,
-    "forks": 7952,
-    "updated_at": "2026-01-25T02:06:24Z",
+    "stars": 63410,
+    "forks": 7956,
+    "updated_at": "2026-01-26T01:51:07Z",
     "source": "github"
   },
   {
@@ -266,9 +266,9 @@
     "url": "https://github.com/pathwaycom/llm-app",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 54680,
-    "forks": 1291,
-    "updated_at": "2026-01-25T01:39:35Z",
+    "stars": 54786,
+    "forks": 1295,
+    "updated_at": "2026-01-25T22:55:39Z",
     "source": "github"
   },
   {
@@ -277,9 +277,9 @@
     "url": "https://github.com/Mintplex-Labs/anything-llm",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 53776,
-    "forks": 5774,
-    "updated_at": "2026-01-25T01:48:46Z",
+    "stars": 53806,
+    "forks": 5775,
+    "updated_at": "2026-01-26T01:26:03Z",
     "source": "github"
   },
   {
@@ -288,9 +288,9 @@
     "url": "https://github.com/unslothai/unsloth",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 51130,
-    "forks": 4222,
-    "updated_at": "2026-01-25T01:33:16Z",
+    "stars": 51163,
+    "forks": 4224,
+    "updated_at": "2026-01-26T01:40:21Z",
     "source": "github"
   },
   {
@@ -299,9 +299,9 @@
     "url": "https://github.com/microsoft/ai-agents-for-beginners",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 49360,
-    "forks": 17198,
-    "updated_at": "2026-01-25T02:01:47Z",
+    "stars": 49403,
+    "forks": 17220,
+    "updated_at": "2026-01-26T02:01:25Z",
     "source": "github"
   },
   {
@@ -310,9 +310,9 @@
     "url": "https://github.com/run-llama/llama_index",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 46574,
-    "forks": 6738,
-    "updated_at": "2026-01-25T01:57:46Z",
+    "stars": 46585,
+    "forks": 6744,
+    "updated_at": "2026-01-26T01:54:04Z",
     "source": "github"
   },
   {
@@ -321,9 +321,9 @@
     "url": "https://github.com/mem0ai/mem0",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 45925,
-    "forks": 5035,
-    "updated_at": "2026-01-25T00:56:22Z",
+    "stars": 45974,
+    "forks": 5039,
+    "updated_at": "2026-01-26T02:04:50Z",
     "source": "github"
   },
   {
@@ -332,9 +332,9 @@
     "url": "https://github.com/jeecgboot/JeecgBoot",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 45077,
-    "forks": 15782,
-    "updated_at": "2026-01-24T18:23:02Z",
+    "stars": 45082,
+    "forks": 15785,
+    "updated_at": "2026-01-26T01:52:23Z",
     "source": "github"
   },
   {
@@ -343,9 +343,9 @@
     "url": "https://github.com/upstash/context7",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 43363,
-    "forks": 2087,
-    "updated_at": "2026-01-25T01:58:04Z",
+    "stars": 43496,
+    "forks": 2093,
+    "updated_at": "2026-01-26T02:00:09Z",
     "source": "github"
   },
   {
@@ -354,9 +354,9 @@
     "url": "https://github.com/milvus-io/milvus",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 42400,
-    "forks": 3779,
-    "updated_at": "2026-01-25T01:23:47Z",
+    "stars": 42418,
+    "forks": 3782,
+    "updated_at": "2026-01-26T02:04:14Z",
     "source": "github"
   },
   {
@@ -365,9 +365,9 @@
     "url": "https://github.com/mudler/LocalAI",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 42335,
-    "forks": 3478,
-    "updated_at": "2026-01-25T01:42:50Z",
+    "stars": 42356,
+    "forks": 3484,
+    "updated_at": "2026-01-26T01:53:14Z",
     "source": "github"
   },
   {
@@ -376,9 +376,9 @@
     "url": "https://github.com/ray-project/ray",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 40966,
-    "forks": 7153,
-    "updated_at": "2026-01-24T20:54:48Z",
+    "stars": 40975,
+    "forks": 7157,
+    "updated_at": "2026-01-25T19:22:58Z",
     "source": "github"
   },
   {
@@ -387,9 +387,9 @@
     "url": "https://github.com/zhayujie/chatgpt-on-wechat",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 40766,
+    "stars": 40779,
     "forks": 9678,
-    "updated_at": "2026-01-24T16:32:23Z",
+    "updated_at": "2026-01-25T16:25:20Z",
     "source": "github"
   },
   {
@@ -398,9 +398,9 @@
     "url": "https://github.com/janhq/jan",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 40172,
-    "forks": 2495,
-    "updated_at": "2026-01-24T22:56:19Z",
+    "stars": 40179,
+    "forks": 2498,
+    "updated_at": "2026-01-26T01:11:22Z",
     "source": "github"
   },
   {
@@ -409,9 +409,9 @@
     "url": "https://github.com/QuivrHQ/quivr",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 38877,
+    "stars": 38878,
     "forks": 3723,
-    "updated_at": "2026-01-25T01:02:46Z",
+    "updated_at": "2026-01-26T00:13:59Z",
     "source": "github"
   },
   {
@@ -420,9 +420,9 @@
     "url": "https://github.com/2noise/ChatTTS",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 38585,
-    "forks": 4198,
-    "updated_at": "2026-01-25T00:09:18Z",
+    "stars": 38592,
+    "forks": 4199,
+    "updated_at": "2026-01-25T22:00:47Z",
     "source": "github"
   },
   {
@@ -431,9 +431,9 @@
     "url": "https://github.com/chatchat-space/Langchain-Chatchat",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 37166,
-    "forks": 6138,
-    "updated_at": "2026-01-25T00:30:18Z",
+    "stars": 37171,
+    "forks": 6141,
+    "updated_at": "2026-01-25T23:09:17Z",
     "source": "github"
   },
   {
@@ -442,9 +442,9 @@
     "url": "https://github.com/reworkd/AgentGPT",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 35595,
-    "forks": 9451,
-    "updated_at": "2026-01-25T01:33:29Z",
+    "stars": 35600,
+    "forks": 9454,
+    "updated_at": "2026-01-26T01:54:10Z",
     "source": "github"
   },
   {
@@ -453,9 +453,9 @@
     "url": "https://github.com/BerriAI/litellm",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 34431,
-    "forks": 5460,
-    "updated_at": "2026-01-25T02:00:37Z",
+    "stars": 34483,
+    "forks": 5469,
+    "updated_at": "2026-01-26T02:01:42Z",
     "source": "github"
   },
   {
@@ -464,9 +464,9 @@
     "url": "https://github.com/khoj-ai/khoj",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 32284,
-    "forks": 1937,
-    "updated_at": "2026-01-25T01:36:25Z",
+    "stars": 32298,
+    "forks": 1938,
+    "updated_at": "2026-01-26T01:57:36Z",
     "source": "github"
   },
   {
@@ -475,9 +475,9 @@
     "url": "https://github.com/continuedev/continue",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 31069,
-    "forks": 4094,
-    "updated_at": "2026-01-25T02:00:40Z",
+    "stars": 31080,
+    "forks": 4097,
+    "updated_at": "2026-01-26T02:03:56Z",
     "source": "github"
   },
   {
@@ -486,9 +486,9 @@
     "url": "https://github.com/microsoft/graphrag",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 30512,
-    "forks": 3216,
-    "updated_at": "2026-01-24T21:21:03Z",
+    "stars": 30532,
+    "forks": 3217,
+    "updated_at": "2026-01-26T01:28:24Z",
     "source": "github"
   },
   {
@@ -497,119 +497,9 @@
     "url": "https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 29692,
-    "forks": 3365,
-    "updated_at": "2026-01-25T01:44:16Z",
-    "source": "github"
-  },
-  {
-    "name": "Perplexica",
-    "description": "Perplexica is an AI-powered answering engine.",
-    "url": "https://github.com/ItzCrazyKns/Perplexica",
-    "category": "AI Coding Assistance",
-    "pricing": "Open Source",
-    "stars": 28540,
-    "forks": 3024,
-    "updated_at": "2026-01-25T01:33:43Z",
-    "source": "github"
-  },
-  {
-    "name": "TradingAgents",
-    "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
-    "url": "https://github.com/TauricResearch/TradingAgents",
-    "category": "AI Workflow Automation",
-    "pricing": "Open Source",
-    "stars": 28459,
-    "forks": 5439,
-    "updated_at": "2026-01-25T01:55:23Z",
-    "source": "github"
-  },
-  {
-    "name": "CopilotKit",
-    "description": "React UI + elegant infrastructure for AI Copilots, AI chatbots, and in-app AI agents. The Agentic Frontend \ud83e\ude81",
-    "url": "https://github.com/CopilotKit/CopilotKit",
-    "category": "AI Chatbots",
-    "pricing": "Open Source",
-    "stars": 28150,
-    "forks": 3658,
-    "updated_at": "2026-01-25T01:31:12Z",
-    "source": "github"
-  },
-  {
-    "name": "void",
-    "description": "No description provided.",
-    "url": "https://github.com/voideditor/void",
-    "category": "AI Chatbots",
-    "pricing": "Open Source",
-    "stars": 28120,
-    "forks": 2277,
-    "updated_at": "2026-01-24T22:19:51Z",
-    "source": "github"
-  },
-  {
-    "name": "self-llm",
-    "description": "\u300a\u5f00\u6e90\u5927\u6a21\u578b\u98df\u7528\u6307\u5357\u300b\u9488\u5bf9\u4e2d\u56fd\u5b9d\u5b9d\u91cf\u8eab\u6253\u9020\u7684\u57fa\u4e8eLinux\u73af\u5883\u5feb\u901f\u5fae\u8c03\uff08\u5168\u53c2\u6570/Lora\uff09\u3001\u90e8\u7f72\u56fd\u5185\u5916\u5f00\u6e90\u5927\u6a21\u578b\uff08LLM\uff09/\u591a\u6a21\u6001\u5927\u6a21\u578b\uff08MLLM\uff09\u6559\u7a0b",
-    "url": "https://github.com/datawhalechina/self-llm",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 27772,
-    "forks": 2781,
-    "updated_at": "2026-01-24T17:25:30Z",
-    "source": "github"
-  },
-  {
-    "name": "LightRAG",
-    "description": "[EMNLP2025] \"LightRAG: Simple and Fast Retrieval-Augmented Generation\"",
-    "url": "https://github.com/HKUDS/LightRAG",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 27603,
-    "forks": 3936,
-    "updated_at": "2026-01-24T19:34:36Z",
-    "source": "github"
-  },
-  {
-    "name": "semantic-kernel",
-    "description": "Integrate cutting-edge LLM technology quickly and easily into your apps",
-    "url": "https://github.com/microsoft/semantic-kernel",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 27086,
-    "forks": 4436,
-    "updated_at": "2026-01-25T01:56:53Z",
-    "source": "github"
-  },
-  {
-    "name": "FastGPT",
-    "description": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities such as data processing, RAG retrieval, and visual AI workflow orchestration, letting you easily develop and deploy complex question-answering systems without the need for extensive setup or configuration.",
-    "url": "https://github.com/labring/FastGPT",
-    "category": "AI Workflow Automation",
-    "pricing": "Check Repo",
-    "stars": 26980,
-    "forks": 6905,
-    "updated_at": "2026-01-24T15:48:42Z",
-    "source": "github"
-  },
-  {
-    "name": "composio",
-    "description": "Composio equips your AI agents & LLMs with 100+ high-quality integrations via function calling",
-    "url": "https://github.com/ComposioHQ/composio",
-    "category": "AI Workflow Automation",
-    "pricing": "Open Source",
-    "stars": 26431,
-    "forks": 4405,
-    "updated_at": "2026-01-24T22:01:55Z",
-    "source": "github"
-  },
-  {
-    "name": "chroma",
-    "description": "Open-source search and retrieval database for AI applications.",
-    "url": "https://github.com/chroma-core/chroma",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 25723,
-    "forks": 2016,
-    "updated_at": "2026-01-25T02:03:29Z",
+    "stars": 29693,
+    "forks": 3363,
+    "updated_at": "2026-01-25T15:33:48Z",
     "source": "github"
   },
   {
@@ -618,9 +508,119 @@
     "url": "https://github.com/affaan-m/everything-claude-code",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 25561,
-    "forks": 3069,
-    "updated_at": "2026-01-25T02:06:22Z",
+    "stars": 28602,
+    "forks": 3430,
+    "updated_at": "2026-01-26T02:05:06Z",
+    "source": "github"
+  },
+  {
+    "name": "Perplexica",
+    "description": "Perplexica is an AI-powered answering engine.",
+    "url": "https://github.com/ItzCrazyKns/Perplexica",
+    "category": "AI Coding Assistance",
+    "pricing": "Open Source",
+    "stars": 28579,
+    "forks": 3034,
+    "updated_at": "2026-01-26T01:54:05Z",
+    "source": "github"
+  },
+  {
+    "name": "TradingAgents",
+    "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+    "url": "https://github.com/TauricResearch/TradingAgents",
+    "category": "AI Workflow Automation",
+    "pricing": "Open Source",
+    "stars": 28493,
+    "forks": 5452,
+    "updated_at": "2026-01-26T01:57:18Z",
+    "source": "github"
+  },
+  {
+    "name": "CopilotKit",
+    "description": "React UI + elegant infrastructure for AI Copilots, AI chatbots, and in-app AI agents. The Agentic Frontend \ud83e\ude81",
+    "url": "https://github.com/CopilotKit/CopilotKit",
+    "category": "AI Chatbots",
+    "pricing": "Open Source",
+    "stars": 28169,
+    "forks": 3658,
+    "updated_at": "2026-01-26T01:48:55Z",
+    "source": "github"
+  },
+  {
+    "name": "void",
+    "description": "No description provided.",
+    "url": "https://github.com/voideditor/void",
+    "category": "AI Chatbots",
+    "pricing": "Open Source",
+    "stars": 28122,
+    "forks": 2278,
+    "updated_at": "2026-01-25T21:45:30Z",
+    "source": "github"
+  },
+  {
+    "name": "self-llm",
+    "description": "\u300a\u5f00\u6e90\u5927\u6a21\u578b\u98df\u7528\u6307\u5357\u300b\u9488\u5bf9\u4e2d\u56fd\u5b9d\u5b9d\u91cf\u8eab\u6253\u9020\u7684\u57fa\u4e8eLinux\u73af\u5883\u5feb\u901f\u5fae\u8c03\uff08\u5168\u53c2\u6570/Lora\uff09\u3001\u90e8\u7f72\u56fd\u5185\u5916\u5f00\u6e90\u5927\u6a21\u578b\uff08LLM\uff09/\u591a\u6a21\u6001\u5927\u6a21\u578b\uff08MLLM\uff09\u6559\u7a0b",
+    "url": "https://github.com/datawhalechina/self-llm",
+    "category": "AI Productivity",
+    "pricing": "Open Source",
+    "stars": 27799,
+    "forks": 2782,
+    "updated_at": "2026-01-26T01:49:23Z",
+    "source": "github"
+  },
+  {
+    "name": "LightRAG",
+    "description": "[EMNLP2025] \"LightRAG: Simple and Fast Retrieval-Augmented Generation\"",
+    "url": "https://github.com/HKUDS/LightRAG",
+    "category": "AI Productivity",
+    "pricing": "Open Source",
+    "stars": 27621,
+    "forks": 3937,
+    "updated_at": "2026-01-26T01:46:47Z",
+    "source": "github"
+  },
+  {
+    "name": "semantic-kernel",
+    "description": "Integrate cutting-edge LLM technology quickly and easily into your apps",
+    "url": "https://github.com/microsoft/semantic-kernel",
+    "category": "AI Productivity",
+    "pricing": "Open Source",
+    "stars": 27089,
+    "forks": 4437,
+    "updated_at": "2026-01-25T19:55:12Z",
+    "source": "github"
+  },
+  {
+    "name": "FastGPT",
+    "description": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities such as data processing, RAG retrieval, and visual AI workflow orchestration, letting you easily develop and deploy complex question-answering systems without the need for extensive setup or configuration.",
+    "url": "https://github.com/labring/FastGPT",
+    "category": "AI Workflow Automation",
+    "pricing": "Check Repo",
+    "stars": 26983,
+    "forks": 6906,
+    "updated_at": "2026-01-26T00:19:06Z",
+    "source": "github"
+  },
+  {
+    "name": "composio",
+    "description": "Composio equips your AI agents & LLMs with 100+ high-quality integrations via function calling",
+    "url": "https://github.com/ComposioHQ/composio",
+    "category": "AI Workflow Automation",
+    "pricing": "Open Source",
+    "stars": 26434,
+    "forks": 4405,
+    "updated_at": "2026-01-25T21:01:05Z",
+    "source": "github"
+  },
+  {
+    "name": "chroma",
+    "description": "Open-source search and retrieval database for AI applications.",
+    "url": "https://github.com/chroma-core/chroma",
+    "category": "AI Productivity",
+    "pricing": "Open Source",
+    "stars": 25740,
+    "forks": 2020,
+    "updated_at": "2026-01-25T22:03:38Z",
     "source": "github"
   },
   {
@@ -629,9 +629,9 @@
     "url": "https://github.com/asgeirtj/system_prompts_leaks",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 25272,
-    "forks": 3878,
-    "updated_at": "2026-01-25T01:42:56Z",
+    "stars": 25288,
+    "forks": 3880,
+    "updated_at": "2026-01-26T00:44:43Z",
     "source": "github"
   },
   {
@@ -640,9 +640,9 @@
     "url": "https://github.com/datawhalechina/happy-llm",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 24899,
-    "forks": 2299,
-    "updated_at": "2026-01-24T22:33:23Z",
+    "stars": 24939,
+    "forks": 2303,
+    "updated_at": "2026-01-26T01:46:27Z",
     "source": "github"
   },
   {
@@ -651,9 +651,9 @@
     "url": "https://github.com/gitleaks/gitleaks",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 24681,
+    "stars": 24699,
     "forks": 1891,
-    "updated_at": "2026-01-24T21:28:14Z",
+    "updated_at": "2026-01-26T01:21:51Z",
     "source": "github"
   },
   {
@@ -662,9 +662,9 @@
     "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 24168,
-    "forks": 5209,
-    "updated_at": "2026-01-24T23:47:00Z",
+    "stars": 24203,
+    "forks": 5210,
+    "updated_at": "2026-01-26T01:59:43Z",
     "source": "github"
   },
   {
@@ -673,9 +673,9 @@
     "url": "https://github.com/deepset-ai/haystack",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 23971,
-    "forks": 2567,
-    "updated_at": "2026-01-25T01:57:20Z",
+    "stars": 23975,
+    "forks": 2569,
+    "updated_at": "2026-01-26T01:46:50Z",
     "source": "github"
   },
   {
@@ -684,9 +684,9 @@
     "url": "https://github.com/langchain-ai/langgraph",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 23721,
-    "forks": 4141,
-    "updated_at": "2026-01-25T01:53:49Z",
+    "stars": 23754,
+    "forks": 4143,
+    "updated_at": "2026-01-26T01:57:16Z",
     "source": "github"
   },
   {
@@ -695,9 +695,9 @@
     "url": "https://github.com/wandb/openui",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 21995,
+    "stars": 21997,
     "forks": 2049,
-    "updated_at": "2026-01-25T01:47:07Z",
+    "updated_at": "2026-01-26T00:00:45Z",
     "source": "github"
   },
   {
@@ -706,9 +706,9 @@
     "url": "https://github.com/jina-ai/serve",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 21828,
+    "stars": 21829,
     "forks": 2238,
-    "updated_at": "2026-01-23T12:56:48Z",
+    "updated_at": "2026-01-25T05:29:09Z",
     "source": "github"
   },
   {
@@ -717,9 +717,9 @@
     "url": "https://github.com/a2aproject/A2A",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 21581,
-    "forks": 2201,
-    "updated_at": "2026-01-24T23:27:21Z",
+    "stars": 21596,
+    "forks": 2202,
+    "updated_at": "2026-01-26T01:14:01Z",
     "source": "github"
   },
   {
@@ -728,9 +728,9 @@
     "url": "https://github.com/yamadashy/repomix",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 21431,
+    "stars": 21469,
     "forks": 1001,
-    "updated_at": "2026-01-25T01:47:05Z",
+    "updated_at": "2026-01-26T01:59:13Z",
     "source": "github"
   },
   {
@@ -739,9 +739,9 @@
     "url": "https://github.com/vercel/ai",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 21180,
-    "forks": 3694,
-    "updated_at": "2026-01-25T01:01:58Z",
+    "stars": 21211,
+    "forks": 3700,
+    "updated_at": "2026-01-26T01:37:43Z",
     "source": "github"
   },
   {
@@ -750,9 +750,9 @@
     "url": "https://github.com/coze-dev/coze-studio",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 19637,
+    "stars": 19647,
     "forks": 2796,
-    "updated_at": "2026-01-25T01:43:47Z",
+    "updated_at": "2026-01-26T01:36:13Z",
     "source": "github"
   },
   {
@@ -761,9 +761,9 @@
     "url": "https://github.com/usestrix/strix",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 19398,
-    "forks": 2031,
-    "updated_at": "2026-01-25T01:57:15Z",
+    "stars": 19410,
+    "forks": 2034,
+    "updated_at": "2026-01-26T01:19:14Z",
     "source": "github"
   },
   {
@@ -772,9 +772,9 @@
     "url": "https://github.com/dyad-sh/dyad",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 19366,
-    "forks": 2178,
-    "updated_at": "2026-01-24T21:51:41Z",
+    "stars": 19383,
+    "forks": 2182,
+    "updated_at": "2026-01-26T01:30:58Z",
     "source": "github"
   },
   {
@@ -783,9 +783,9 @@
     "url": "https://github.com/NirDiamant/agents-towards-production",
     "category": "AI Workflow Automation",
     "pricing": "Check Repo",
-    "stars": 16961,
-    "forks": 2209,
-    "updated_at": "2026-01-24T21:23:59Z",
+    "stars": 16972,
+    "forks": 2211,
+    "updated_at": "2026-01-25T21:23:19Z",
     "source": "github"
   },
   {
@@ -794,9 +794,9 @@
     "url": "https://github.com/NVIDIA-NeMo/NeMo",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 16612,
-    "forks": 3305,
-    "updated_at": "2026-01-24T14:35:25Z",
+    "stars": 16621,
+    "forks": 3306,
+    "updated_at": "2026-01-25T21:34:23Z",
     "source": "github"
   },
   {
@@ -805,9 +805,9 @@
     "url": "https://github.com/ai-shifu/ChatALL",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 16240,
-    "forks": 1711,
-    "updated_at": "2026-01-24T14:07:45Z",
+    "stars": 16239,
+    "forks": 1712,
+    "updated_at": "2026-01-25T22:46:30Z",
     "source": "github"
   },
   {
@@ -816,9 +816,9 @@
     "url": "https://github.com/dottxt-ai/outlines",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 13292,
+    "stars": 13299,
     "forks": 657,
-    "updated_at": "2026-01-25T01:15:50Z",
+    "updated_at": "2026-01-25T16:19:57Z",
     "source": "github"
   },
   {
@@ -827,9 +827,9 @@
     "url": "https://github.com/GoogleCloudPlatform/generative-ai",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 12523,
-    "forks": 3672,
-    "updated_at": "2026-01-24T22:28:03Z",
+    "stars": 12526,
+    "forks": 3671,
+    "updated_at": "2026-01-26T02:04:00Z",
     "source": "github"
   },
   {
@@ -838,9 +838,9 @@
     "url": "https://github.com/Tencent/WeKnora",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 12346,
-    "forks": 1374,
-    "updated_at": "2026-01-24T16:17:10Z",
+    "stars": 12365,
+    "forks": 1375,
+    "updated_at": "2026-01-26T02:00:42Z",
     "source": "github"
   },
   {
@@ -849,9 +849,9 @@
     "url": "https://github.com/steven2358/awesome-generative-ai",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 11315,
-    "forks": 1274,
-    "updated_at": "2026-01-25T00:18:23Z",
+    "stars": 11323,
+    "forks": 1276,
+    "updated_at": "2026-01-26T02:02:26Z",
     "source": "github"
   },
   {
@@ -860,9 +860,9 @@
     "url": "https://github.com/tensorzero/tensorzero",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 10856,
-    "forks": 754,
-    "updated_at": "2026-01-24T23:44:56Z",
+    "stars": 10859,
+    "forks": 755,
+    "updated_at": "2026-01-26T01:08:09Z",
     "source": "github"
   },
   {
@@ -871,9 +871,9 @@
     "url": "https://github.com/Portkey-AI/gateway",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 10367,
-    "forks": 862,
-    "updated_at": "2026-01-25T00:11:42Z",
+    "stars": 10373,
+    "forks": 864,
+    "updated_at": "2026-01-25T22:12:41Z",
     "source": "github"
   },
   {
@@ -882,9 +882,9 @@
     "url": "https://github.com/Netflix/metaflow",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 9728,
+    "stars": 9731,
     "forks": 944,
-    "updated_at": "2026-01-23T18:03:27Z",
+    "updated_at": "2026-01-26T01:32:57Z",
     "source": "github"
   },
   {
@@ -893,9 +893,9 @@
     "url": "https://github.com/KalyanKS-NLP/llm-engineer-toolkit",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 9706,
-    "forks": 1561,
-    "updated_at": "2026-01-25T01:44:57Z",
+    "stars": 9730,
+    "forks": 1563,
+    "updated_at": "2026-01-26T00:33:46Z",
     "source": "github"
   },
   {
@@ -904,9 +904,9 @@
     "url": "https://github.com/Acly/krita-ai-diffusion",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 9650,
-    "forks": 539,
-    "updated_at": "2026-01-24T18:42:26Z",
+    "stars": 9656,
+    "forks": 540,
+    "updated_at": "2026-01-26T00:01:19Z",
     "source": "github"
   },
   {
@@ -915,9 +915,9 @@
     "url": "https://github.com/openvinotoolkit/openvino",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 9592,
+    "stars": 9594,
     "forks": 2989,
-    "updated_at": "2026-01-25T00:27:22Z",
+    "updated_at": "2026-01-25T13:19:40Z",
     "source": "github"
   },
   {
@@ -926,9 +926,9 @@
     "url": "https://github.com/zoicware/RemoveWindowsAI",
     "category": "AI Coding Assistance",
     "pricing": "Open Source",
-    "stars": 9300,
-    "forks": 297,
-    "updated_at": "2026-01-25T01:58:52Z",
+    "stars": 9348,
+    "forks": 301,
+    "updated_at": "2026-01-26T02:00:06Z",
     "source": "github"
   },
   {
@@ -937,9 +937,9 @@
     "url": "https://github.com/lyogavin/airllm",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 8875,
-    "forks": 805,
-    "updated_at": "2026-01-25T01:57:32Z",
+    "stars": 8955,
+    "forks": 810,
+    "updated_at": "2026-01-26T01:56:02Z",
     "source": "github"
   },
   {
@@ -948,9 +948,9 @@
     "url": "https://github.com/FoundationVision/VAR",
     "category": "AI Image Generation",
     "pricing": "Open Source",
-    "stars": 8592,
+    "stars": 8593,
     "forks": 555,
-    "updated_at": "2026-01-24T16:17:49Z",
+    "updated_at": "2026-01-25T13:05:07Z",
     "source": "github"
   },
   {
@@ -959,9 +959,9 @@
     "url": "https://github.com/miurla/morphic",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 8509,
-    "forks": 2317,
-    "updated_at": "2026-01-23T13:07:13Z",
+    "stars": 8510,
+    "forks": 2319,
+    "updated_at": "2026-01-25T04:59:49Z",
     "source": "github"
   },
   {
@@ -970,9 +970,9 @@
     "url": "https://github.com/bentoml/BentoML",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 8385,
-    "forks": 902,
-    "updated_at": "2026-01-24T19:53:28Z",
+    "stars": 8387,
+    "forks": 904,
+    "updated_at": "2026-01-25T21:50:39Z",
     "source": "github"
   },
   {
@@ -982,8 +982,8 @@
     "category": "AI Image Generation",
     "pricing": "Open Source",
     "stars": 7368,
-    "forks": 1101,
-    "updated_at": "2026-01-24T14:07:48Z",
+    "forks": 1100,
+    "updated_at": "2026-01-25T15:08:38Z",
     "source": "github"
   },
   {
@@ -992,9 +992,9 @@
     "url": "https://github.com/awslabs/agent-squad",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 7283,
-    "forks": 673,
-    "updated_at": "2026-01-24T22:19:25Z",
+    "stars": 7297,
+    "forks": 674,
+    "updated_at": "2026-01-26T01:53:08Z",
     "source": "github"
   },
   {
@@ -1003,9 +1003,9 @@
     "url": "https://github.com/evidentlyai/evidently",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 7043,
-    "forks": 776,
-    "updated_at": "2026-01-24T17:40:24Z",
+    "stars": 7046,
+    "forks": 777,
+    "updated_at": "2026-01-25T20:15:10Z",
     "source": "github"
   },
   {
@@ -1014,9 +1014,9 @@
     "url": "https://github.com/aliasrobotics/cai",
     "category": "AI Productivity",
     "pricing": "Check Repo",
-    "stars": 6848,
+    "stars": 6856,
     "forks": 967,
-    "updated_at": "2026-01-25T01:42:02Z",
+    "updated_at": "2026-01-25T22:20:45Z",
     "source": "github"
   },
   {
@@ -1025,9 +1025,9 @@
     "url": "https://github.com/amitness/learning",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 6789,
+    "stars": 6790,
     "forks": 879,
-    "updated_at": "2026-01-24T18:14:14Z",
+    "updated_at": "2026-01-25T05:31:56Z",
     "source": "github"
   },
   {
@@ -1036,9 +1036,9 @@
     "url": "https://github.com/traceloop/openllmetry",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 6785,
+    "stars": 6787,
     "forks": 870,
-    "updated_at": "2026-01-24T20:39:55Z",
+    "updated_at": "2026-01-25T14:04:20Z",
     "source": "github"
   },
   {
@@ -1047,9 +1047,9 @@
     "url": "https://github.com/TencentQQGYLab/AppAgent",
     "category": "AI Chatbots",
     "pricing": "Open Source",
-    "stars": 6478,
+    "stars": 6479,
     "forks": 725,
-    "updated_at": "2026-01-23T13:10:55Z",
+    "updated_at": "2026-01-26T01:27:40Z",
     "source": "github"
   },
   {
@@ -1058,9 +1058,9 @@
     "url": "https://github.com/poloclub/transformer-explainer",
     "category": "AI Data Visualization",
     "pricing": "Open Source",
-    "stars": 6463,
-    "forks": 683,
-    "updated_at": "2026-01-24T22:23:22Z",
+    "stars": 6467,
+    "forks": 684,
+    "updated_at": "2026-01-25T17:39:37Z",
     "source": "github"
   },
   {
@@ -1069,9 +1069,9 @@
     "url": "https://github.com/0x4m4/hexstrike-ai",
     "category": "AI Coding Assistance",
     "pricing": "Check Repo",
-    "stars": 6250,
-    "forks": 1412,
-    "updated_at": "2026-01-24T20:50:25Z",
+    "stars": 6266,
+    "forks": 1416,
+    "updated_at": "2026-01-26T01:07:32Z",
     "source": "github"
   },
   {
@@ -1080,9 +1080,9 @@
     "url": "https://github.com/grab/cursor-talk-to-figma-mcp",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 6180,
-    "forks": 647,
-    "updated_at": "2026-01-24T18:29:17Z",
+    "stars": 6184,
+    "forks": 646,
+    "updated_at": "2026-01-25T22:14:36Z",
     "source": "github"
   },
   {
@@ -1091,9 +1091,9 @@
     "url": "https://github.com/0xPlaygrounds/rig",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 5668,
-    "forks": 636,
-    "updated_at": "2026-01-25T00:52:44Z",
+    "stars": 5681,
+    "forks": 637,
+    "updated_at": "2026-01-26T01:00:08Z",
     "source": "github"
   },
   {
@@ -1102,9 +1102,9 @@
     "url": "https://github.com/GoogleCloudPlatform/agent-starter-pack",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 5588,
-    "forks": 1293,
-    "updated_at": "2026-01-24T18:20:53Z",
+    "stars": 5591,
+    "forks": 1291,
+    "updated_at": "2026-01-25T23:53:42Z",
     "source": "github"
   },
   {
@@ -1113,9 +1113,9 @@
     "url": "https://github.com/NVIDIA-NeMo/Guardrails",
     "category": "AI Chatbots",
     "pricing": "Check Repo",
-    "stars": 5539,
-    "forks": 588,
-    "updated_at": "2026-01-24T20:13:56Z",
+    "stars": 5542,
+    "forks": 589,
+    "updated_at": "2026-01-25T18:05:03Z",
     "source": "github"
   },
   {
@@ -1135,9 +1135,9 @@
     "url": "https://github.com/apurvsinghgautam/robin",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 3744,
-    "forks": 731,
-    "updated_at": "2026-01-24T18:19:21Z",
+    "stars": 3759,
+    "forks": 732,
+    "updated_at": "2026-01-26T01:05:17Z",
     "source": "github"
   },
   {
@@ -1157,9 +1157,9 @@
     "url": "https://github.com/laihenyi/NBLM2PPTX",
     "category": "AI Productivity",
     "pricing": "Open Source",
-    "stars": 166,
-    "forks": 56,
-    "updated_at": "2026-01-24T13:59:34Z",
+    "stars": 167,
+    "forks": 57,
+    "updated_at": "2026-01-25T17:22:49Z",
     "source": "github"
   },
   {
@@ -1201,9 +1201,9 @@
     "url": "https://github.com/boshyxd/robloxstudio-mcp",
     "category": "AI Workflow Automation",
     "pricing": "Open Source",
-    "stars": 99,
+    "stars": 100,
     "forks": 22,
-    "updated_at": "2026-01-24T17:41:23Z",
+    "updated_at": "2026-01-25T16:21:36Z",
     "source": "github"
   },
   {
@@ -1313,7 +1313,7 @@
     "pricing": "Open Source",
     "stars": 21,
     "forks": 4,
-    "updated_at": "2026-01-25T01:28:28Z",
+    "updated_at": "2026-01-26T00:42:51Z",
     "source": "github"
   },
   {
@@ -1361,17 +1361,6 @@
     "source": "github"
   },
   {
-    "name": "message-mcp",
-    "description": "Desktop notifications, custom sounds, ntfy mobile notifications, email notifications, and API pushes reduce anxiety while waiting for AI tasks, allowing you to comfortably enjoy a cup of coffee.",
-    "url": "https://github.com/gimjin/message-mcp",
-    "category": "AI Chatbots",
-    "pricing": "Open Source",
-    "stars": 8,
-    "forks": 2,
-    "updated_at": "2026-01-13T20:36:39Z",
-    "source": "github"
-  },
-  {
     "name": "SVG-ORA-Studio",
     "description": "SVG ORA Studio is a free and open-source AI-powered vector design platform that transforms text or images into clean, editable SVG graphics. It features AI-driven generation, a built-in canvas editor, layer controls, and real-time vector refinement\u2014all directly in your browser.",
     "url": "https://github.com/seeb4coding/SVG-ORA-Studio",
@@ -1391,6 +1380,17 @@
     "stars": 8,
     "forks": 5,
     "updated_at": "2026-01-09T23:58:41Z",
+    "source": "github"
+  },
+  {
+    "name": "message-mcp",
+    "description": "Desktop notifications, custom sounds, ntfy mobile notifications, email notifications, and API pushes reduce anxiety while waiting for AI tasks, allowing you to comfortably enjoy a cup of coffee.",
+    "url": "https://github.com/gimjin/message-mcp",
+    "category": "AI Chatbots",
+    "pricing": "Open Source",
+    "stars": 8,
+    "forks": 2,
+    "updated_at": "2026-01-13T20:36:39Z",
     "source": "github"
   },
   {
@@ -1445,7 +1445,7 @@
     "pricing": "Open Source",
     "stars": 4,
     "forks": 9,
-    "updated_at": "2025-12-27T13:19:02Z",
+    "updated_at": "2026-01-25T21:34:54Z",
     "source": "github"
   },
   {
@@ -1479,17 +1479,6 @@
     "stars": 3,
     "forks": 0,
     "updated_at": "2025-05-20T14:13:05Z",
-    "source": "github"
-  },
-  {
-    "name": "jobpeap4u-easy-seo-site",
-    "description": "jobleap4u\u662f\u4e00\u4e2a\u5f00\u6e90\u7684AI\u5bfc\u822a\u7ad9\uff0c\u4f60\u53ef\u4ee5\u57fa\u4e8e\u8fd9\u4e2a\u6a21\u7248\u518d\u5f00\u53d1\u51fa\u81ea\u5df1\u7684AI\u5bfc\u822a\u7ad9\u70b9",
-    "url": "https://github.com/XiaomingX/jobpeap4u-easy-seo-site",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 3,
-    "forks": 0,
-    "updated_at": "2025-12-14T13:06:53Z",
     "source": "github"
   },
   {
@@ -1581,17 +1570,6 @@
     "source": "github"
   },
   {
-    "name": "awesome-mcp",
-    "description": "A curated list of awesome MCP (Model Context Protocol) servers, tools, and resources for Claude Desktop and AI assistants",
-    "url": "https://github.com/epicmotionSD/awesome-mcp",
-    "category": "AI Productivity",
-    "pricing": "Check Repo",
-    "stars": 2,
-    "forks": 0,
-    "updated_at": "2025-12-09T21:11:14Z",
-    "source": "github"
-  },
-  {
     "name": "privalyse-mask",
     "description": "Semantic PII Masking & Anonymization for LLMs (RAG). GDPR-compliant, reversible, and context-aware. Supports LangChain & OpenAI",
     "url": "https://github.com/Privalyse/privalyse-mask",
@@ -1603,6 +1581,17 @@
     "source": "github"
   },
   {
+    "name": "awesome-mcp",
+    "description": "A curated list of awesome MCP (Model Context Protocol) servers, tools, and resources for Claude Desktop and AI assistants",
+    "url": "https://github.com/epicmotionSD/awesome-mcp",
+    "category": "AI Productivity",
+    "pricing": "Check Repo",
+    "stars": 2,
+    "forks": 0,
+    "updated_at": "2025-12-09T21:11:14Z",
+    "source": "github"
+  },
+  {
     "name": "FinVeda",
     "description": "Smart Investing, Simplified with AI. Unlock institutional-grade analytics and automate your wealth growth. Join the future of personal finance today and let our intelligence work for you.",
     "url": "https://github.com/riteshsingh84/FinVeda",
@@ -1611,17 +1600,6 @@
     "stars": 2,
     "forks": 0,
     "updated_at": "2026-01-18T09:30:30Z",
-    "source": "github"
-  },
-  {
-    "name": "ResxMcp",
-    "description": "A lightweight MCP server for managing .resx localization files\u2014works with any MCP-compatible client.",
-    "url": "https://github.com/miaofalianhua/ResxMcp",
-    "category": "AI Productivity",
-    "pricing": "Open Source",
-    "stars": 2,
-    "forks": 0,
-    "updated_at": "2025-12-10T01:09:13Z",
     "source": "github"
   },
   {
@@ -1647,6 +1625,17 @@
     "source": "github"
   },
   {
+    "name": "ResxMcp",
+    "description": "A lightweight MCP server for managing .resx localization files\u2014works with any MCP-compatible client.",
+    "url": "https://github.com/miaofalianhua/ResxMcp",
+    "category": "AI Productivity",
+    "pricing": "Open Source",
+    "stars": 2,
+    "forks": 0,
+    "updated_at": "2025-12-10T01:09:13Z",
+    "source": "github"
+  },
+  {
     "name": "agent0",
     "description": "\ud83d\ude80 Create and run TypeScript code on the fly with agent0, a self-healing tool that adapts to your API needs and provides seamless integration.",
     "url": "https://github.com/siddhantthegts/agent0",
@@ -1654,7 +1643,7 @@
     "pricing": "Check Repo",
     "stars": 2,
     "forks": 0,
-    "updated_at": "2026-01-25T01:58:34Z",
+    "updated_at": "2026-01-26T01:11:53Z",
     "source": "github"
   },
   {
@@ -1677,6 +1666,17 @@
     "stars": 1,
     "forks": 1,
     "updated_at": "2026-01-04T18:07:13Z",
+    "source": "github"
+  },
+  {
+    "name": "descreve-ai",
+    "description": "Gerador de texto alternativo com intelig\u00eancia artificial ",
+    "url": "https://github.com/jornalistainclusivo/descreve-ai",
+    "category": "AI Productivity",
+    "pricing": "Check Repo",
+    "stars": 1,
+    "forks": 0,
+    "updated_at": "2026-01-25T20:55:16Z",
     "source": "github"
   }
 ]
